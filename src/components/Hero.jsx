@@ -6,7 +6,7 @@ export default function Hero({ navigate }) {
     <section className="hero-section" id="hero-section">
       <div className="hero-bg-container">
         <img
-          src="/assets/hero/Herobg.jpg"
+          src="/assets/hero/Herobg-2.jpg"
           alt="Handcrafted genuine leather artisanal background"
           className="hero-bg-img"
           loading="eager"

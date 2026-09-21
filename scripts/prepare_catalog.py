@@ -134,7 +134,7 @@ for cat in categories_config:
 
             prod_entry = {
                 'id': f"{cat['id']}-{safe_model.lower()}",
-                'name': f"{cat_singular} ({model})",
+                'name': f"{cat_singular}",
                 'modelNumber': model,
                 'categoryId': cat['id'],
                 'categoryName': cat['name'],

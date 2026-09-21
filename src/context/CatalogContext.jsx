@@ -1,6 +1,25 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 
-const LOCAL_STORAGE_KEY = 'mcrc_catalog_data_v1';
+const LOCAL_STORAGE_KEY = 'mcrc_catalog_data_v2';
+
+const cleanProductName = (name) => {
+  if (!name) return name;
+  return name.replace(/\s*\([^)]*\)\s*$/, '').trim();
+};
+
+const sanitizeCatalog = (data) => {
+  if (!data || !data.categories) return data;
+  return {
+    ...data,
+    categories: data.categories.map((cat) => ({
+      ...cat,
+      products: (cat.products || []).map((prod) => ({
+        ...prod,
+        name: cleanProductName(prod.name)
+      }))
+    }))
+  };
+};
 
 const CatalogContext = createContext(null);
 
@@ -24,7 +43,8 @@ export function CatalogProvider({ children }) {
         if (saved) {
           const parsed = JSON.parse(saved);
           if (parsed && parsed.categories && parsed.categories.length > 0) {
-            setCatalog(parsed);
+            const sanitized = sanitizeCatalog(parsed);
+            setCatalog(sanitized);
             setLoading(false);
             return;
           }
@@ -33,8 +53,9 @@ export function CatalogProvider({ children }) {
         const res = await fetch('/data/catalog.json');
         if (!res.ok) throw new Error('Failed to load base catalog');
         const data = await res.json();
-        setCatalog(data);
-        localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(data));
+        const sanitized = sanitizeCatalog(data);
+        setCatalog(sanitized);
+        localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(sanitized));
       } catch (err) {
         console.error('Error initializing catalog:', err);
       } finally {

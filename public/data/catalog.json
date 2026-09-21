@@ -8,7 +8,7 @@
       "products": [
         {
           "id": "small-leather-goods-om-3765",
-          "name": "Handcrafted Leather Good (OM-3765)",
+          "name": "Handcrafted Leather Good",
           "modelNumber": "OM-3765",
           "categoryId": "small-leather-goods",
           "categoryName": "Small Leather Goods",
@@ -23,7 +23,7 @@
         },
         {
           "id": "small-leather-goods-om-7637",
-          "name": "Handcrafted Leather Good (OM-7637)",
+          "name": "Handcrafted Leather Good",
           "modelNumber": "OM-7637",
           "categoryId": "small-leather-goods",
           "categoryName": "Small Leather Goods",
@@ -39,7 +39,7 @@
         },
         {
           "id": "small-leather-goods-om-8104",
-          "name": "Handcrafted Leather Good (OM-8104)",
+          "name": "Handcrafted Leather Good",
           "modelNumber": "OM-8104",
           "categoryId": "small-leather-goods",
           "categoryName": "Small Leather Goods",
@@ -53,7 +53,7 @@
         },
         {
           "id": "small-leather-goods-om-8493",
-          "name": "Handcrafted Leather Good (OM-8493)",
+          "name": "Handcrafted Leather Good",
           "modelNumber": "OM-8493",
           "categoryId": "small-leather-goods",
           "categoryName": "Small Leather Goods",
@@ -68,7 +68,7 @@
         },
         {
           "id": "small-leather-goods-om-9622",
-          "name": "Handcrafted Leather Good (OM-9622)",
+          "name": "Handcrafted Leather Good",
           "modelNumber": "OM-9622",
           "categoryId": "small-leather-goods",
           "categoryName": "Small Leather Goods",
@@ -83,7 +83,7 @@
         },
         {
           "id": "small-leather-goods-om-9874",
-          "name": "Handcrafted Leather Good (OM-9874)",
+          "name": "Handcrafted Leather Good",
           "modelNumber": "OM-9874",
           "categoryId": "small-leather-goods",
           "categoryName": "Small Leather Goods",
@@ -105,7 +105,7 @@
       "products": [
         {
           "id": "pouches-om-2016",
-          "name": "Hand-Painted Leather Pouch (OM-2016)",
+          "name": "Hand-Painted Leather Pouch",
           "modelNumber": "OM-2016",
           "categoryId": "pouches",
           "categoryName": "Pouches",
@@ -120,7 +120,7 @@
         },
         {
           "id": "pouches-om-4345",
-          "name": "Hand-Painted Leather Pouch (OM-4345)",
+          "name": "Hand-Painted Leather Pouch",
           "modelNumber": "OM-4345",
           "categoryId": "pouches",
           "categoryName": "Pouches",
@@ -134,7 +134,7 @@
         },
         {
           "id": "pouches-om-6511",
-          "name": "Hand-Painted Leather Pouch (OM-6511)",
+          "name": "Hand-Painted Leather Pouch",
           "modelNumber": "OM-6511",
           "categoryId": "pouches",
           "categoryName": "Pouches",
@@ -149,7 +149,7 @@
         },
         {
           "id": "pouches-om-9399",
-          "name": "Hand-Painted Leather Pouch (OM-9399)",
+          "name": "Hand-Painted Leather Pouch",
           "modelNumber": "OM-9399",
           "categoryId": "pouches",
           "categoryName": "Pouches",
@@ -172,7 +172,7 @@
       "products": [
         {
           "id": "leather-bags-om-1817",
-          "name": "Artisanal Genuine Leather Bag (OM-1817)",
+          "name": "Artisanal Genuine Leather Bag",
           "modelNumber": "OM-1817",
           "categoryId": "leather-bags",
           "categoryName": "Leather Bags",
@@ -187,7 +187,7 @@
         },
         {
           "id": "leather-bags-om-lb05",
-          "name": "Artisanal Genuine Leather Bag (OM-LB05)",
+          "name": "Artisanal Genuine Leather Bag",
           "modelNumber": "OM-LB05",
           "categoryId": "leather-bags",
           "categoryName": "Leather Bags",
@@ -202,7 +202,7 @@
         },
         {
           "id": "leather-bags-om-lb13",
-          "name": "Artisanal Genuine Leather Bag (OM-LB13)",
+          "name": "Artisanal Genuine Leather Bag",
           "modelNumber": "OM-LB13",
           "categoryId": "leather-bags",
           "categoryName": "Leather Bags",
@@ -216,7 +216,7 @@
         },
         {
           "id": "leather-bags-om-lb17",
-          "name": "Artisanal Genuine Leather Bag (OM-LB17)",
+          "name": "Artisanal Genuine Leather Bag",
           "modelNumber": "OM-LB17",
           "categoryId": "leather-bags",
           "categoryName": "Leather Bags",
@@ -239,7 +239,7 @@
       "products": [
         {
           "id": "coin-bags-decor-om-4001",
-          "name": "Handcrafted Leather Decor & Coin Bank (OM-4001)",
+          "name": "Handcrafted Leather Decor & Coin Bank",
           "modelNumber": "OM-4001",
           "categoryId": "coin-bags-decor",
           "categoryName": "Coin Bags & Decor",
@@ -254,7 +254,7 @@
         },
         {
           "id": "coin-bags-decor-om-4821",
-          "name": "Handcrafted Leather Decor & Coin Bank (OM-4821)",
+          "name": "Handcrafted Leather Decor & Coin Bank",
           "modelNumber": "OM-4821",
           "categoryId": "coin-bags-decor",
           "categoryName": "Coin Bags & Decor",
@@ -269,7 +269,7 @@
         },
         {
           "id": "coin-bags-decor-om-5259",
-          "name": "Handcrafted Leather Decor & Coin Bank (OM-5259)",
+          "name": "Handcrafted Leather Decor & Coin Bank",
           "modelNumber": "OM-5259",
           "categoryId": "coin-bags-decor",
           "categoryName": "Coin Bags & Decor",
@@ -283,7 +283,7 @@
         },
         {
           "id": "coin-bags-decor-om-7566",
-          "name": "Handcrafted Leather Decor & Coin Bank (OM-7566)",
+          "name": "Handcrafted Leather Decor & Coin Bank",
           "modelNumber": "OM-7566",
           "categoryId": "coin-bags-decor",
           "categoryName": "Coin Bags & Decor",
@@ -305,7 +305,7 @@
       "products": [
         {
           "id": "wallets-om-1808",
-          "name": "Embossed Leather Wallet (OM-1808)",
+          "name": "Embossed Leather Wallet",
           "modelNumber": "OM-1808",
           "categoryId": "wallets",
           "categoryName": "Wallets",
@@ -320,7 +320,7 @@
         },
         {
           "id": "wallets-om-8906",
-          "name": "Embossed Leather Wallet (OM-8906)",
+          "name": "Embossed Leather Wallet",
           "modelNumber": "OM-8906",
           "categoryId": "wallets",
           "categoryName": "Wallets",
@@ -335,7 +335,7 @@
         },
         {
           "id": "wallets-om-8975",
-          "name": "Embossed Leather Wallet (OM-8975)",
+          "name": "Embossed Leather Wallet",
           "modelNumber": "OM-8975",
           "categoryId": "wallets",
           "categoryName": "Wallets",
@@ -350,7 +350,7 @@
         },
         {
           "id": "wallets-om-9082",
-          "name": "Embossed Leather Wallet (OM-9082)",
+          "name": "Embossed Leather Wallet",
           "modelNumber": "OM-9082",
           "categoryId": "wallets",
           "categoryName": "Wallets",
@@ -365,7 +365,7 @@
         },
         {
           "id": "wallets-om-9105",
-          "name": "Embossed Leather Wallet (OM-9105)",
+          "name": "Embossed Leather Wallet",
           "modelNumber": "OM-9105",
           "categoryId": "wallets",
           "categoryName": "Wallets",
@@ -387,7 +387,7 @@
       "products": [
         {
           "id": "canvas-bags-om-0050",
-          "name": "Artisan Canvas & Leather Bag (OM-0050)",
+          "name": "Artisan Canvas & Leather Bag",
           "modelNumber": "OM-0050",
           "categoryId": "canvas-bags",
           "categoryName": "Canvas Bags",
@@ -402,7 +402,7 @@
         },
         {
           "id": "canvas-bags-om-0059",
-          "name": "Artisan Canvas & Leather Bag (OM-0059)",
+          "name": "Artisan Canvas & Leather Bag",
           "modelNumber": "OM-0059",
           "categoryId": "canvas-bags",
           "categoryName": "Canvas Bags",
@@ -417,7 +417,7 @@
         },
         {
           "id": "canvas-bags-om-0067",
-          "name": "Artisan Canvas & Leather Bag (OM-0067)",
+          "name": "Artisan Canvas & Leather Bag",
           "modelNumber": "OM-0067",
           "categoryId": "canvas-bags",
           "categoryName": "Canvas Bags",
@@ -432,7 +432,7 @@
         },
         {
           "id": "canvas-bags-om-0105",
-          "name": "Artisan Canvas & Leather Bag (OM-0105)",
+          "name": "Artisan Canvas & Leather Bag",
           "modelNumber": "OM-0105",
           "categoryId": "canvas-bags",
           "categoryName": "Canvas Bags",

@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, ChevronDown } from 'lucide-react';
 import { useCatalog } from '../context/CatalogContext';
 
 export default function CatalogPage({ categoryFilter, navigate }) {
@@ -28,6 +28,14 @@ export default function CatalogPage({ categoryFilter, navigate }) {
     return prods;
   }, [categories, activeCategoryId, currentCategory]);
 
+  const totalProductsCount = useMemo(() => {
+    let count = 0;
+    categories.forEach((cat) => {
+      if (cat.products) count += cat.products.length;
+    });
+    return count;
+  }, [categories]);
+
   const handleCategorySelect = (id) => {
     if (id === 'all') {
       navigate('/products');
@@ -51,7 +59,7 @@ export default function CatalogPage({ categoryFilter, navigate }) {
               : 'Browse our complete catalog of handcrafted and hand-painted genuine leather export models. Select any item to inspect multi-angle craftsmanship.'}
           </p>
 
-          {/* Category Filter Pills */}
+          {/* Category Filter Pills (Desktop) */}
           <div className="category-filter-bar">
             <button
               type="button"
@@ -70,6 +78,29 @@ export default function CatalogPage({ categoryFilter, navigate }) {
                 {cat.name} ({cat.products ? cat.products.length : 0})
               </button>
             ))}
+          </div>
+
+          {/* Category Filter Dropdown (Mobile) */}
+          <div className="category-filter-dropdown-wrap">
+            <label htmlFor="mobile-category-select" className="category-dropdown-label">
+              Select Collection
+            </label>
+            <div className="category-select-container">
+              <select
+                id="mobile-category-select"
+                className="category-filter-select"
+                value={activeCategoryId}
+                onChange={(e) => handleCategorySelect(e.target.value)}
+              >
+                <option value="all">All Collections ({totalProductsCount})</option>
+                {categories.map((cat) => (
+                  <option key={cat.id} value={cat.id}>
+                    {cat.name} ({cat.products ? cat.products.length : 0})
+                  </option>
+                ))}
+              </select>
+              <ChevronDown size={18} className="category-select-icon" />
+            </div>
           </div>
         </div>
       </section>

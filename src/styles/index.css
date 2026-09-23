@@ -268,11 +268,6 @@ h1, h2, h3, h4, h5, h6 {
   width: auto;
   object-fit: contain;
   filter: brightness(0) invert(1);
-  transition: transform 0.25s ease;
-}
-
-.site-logo:hover {
-  transform: scale(1.02);
 }
 
 .nav-links {
@@ -416,12 +411,6 @@ h1, h2, h3, h4, h5, h6 {
   height: 100%;
   object-fit: cover;
   object-position: center 35%;
-  transform: scale(1.02);
-  transition: transform 7s cubic-bezier(0.25, 1, 0.5, 1);
-}
-
-.hero-section:hover .hero-bg-img {
-  transform: scale(1.05);
 }
 
 .hero-overlay {
@@ -519,11 +508,6 @@ h1, h2, h3, h4, h5, h6 {
   height: auto;
   aspect-ratio: 16 / 10;
   object-fit: cover;
-  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.legacy-image-frame:hover .legacy-image {
-  transform: scale(1.03);
 }
 
 .legacy-stamp {
@@ -693,14 +677,13 @@ h1, h2, h3, h4, h5, h6 {
   border: 1px solid var(--border-subtle);
   background-color: #E2DBD2;
   cursor: pointer;
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+  transition: box-shadow 0.4s ease;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
 }
 
 .bento-card:hover {
-  transform: translateY(-4px);
   box-shadow: 0 16px 36px rgba(0, 0, 0, 0.12);
 }
 
@@ -741,11 +724,6 @@ h1, h2, h3, h4, h5, h6 {
   height: 100%;
   object-fit: cover;
   object-position: center;
-  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.bento-card:hover .bento-img {
-  transform: scale(1.06);
 }
 
 .bento-overlay {
@@ -855,6 +833,11 @@ h1, h2, h3, h4, h5, h6 {
   border-color: var(--color-dark);
 }
 
+/* Mobile Category Dropdown (hidden on desktop) */
+.category-filter-dropdown-wrap {
+  display: none;
+}
+
 /* Product Cards Grid */
 .products-grid {
   display: grid;
@@ -867,13 +850,12 @@ h1, h2, h3, h4, h5, h6 {
   background-color: var(--color-surface);
   border: 1px solid var(--border-subtle);
   cursor: pointer;
-  transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+  transition: box-shadow 0.35s ease, border-color 0.35s ease;
   display: flex;
   flex-direction: column;
 }
 
 .product-card:hover {
-  transform: translateY(-4px);
   box-shadow: 0 14px 30px rgba(0, 0, 0, 0.07);
   border-color: var(--border-strong);
 }
@@ -894,11 +876,6 @@ h1, h2, h3, h4, h5, h6 {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.product-card:hover .product-thumb {
-  transform: scale(1.05);
 }
 
 .product-card-body {
@@ -1820,6 +1797,18 @@ h1, h2, h3, h4, h5, h6 {
   .modal-info-side {
     padding: 32px;
   }
+
+  .about-story-grid {
+    gap: 40px;
+  }
+}
+
+/* 900px and below (Tablets Portrait & Below) */
+@media (max-width: 900px) {
+  .about-story-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
 }
 
 /* 768px and below (Mobile Landscape & Portrait) */
@@ -1914,6 +1903,89 @@ h1, h2, h3, h4, h5, h6 {
     flex-direction: column;
     align-items: flex-start;
   }
+
+  .about-hero {
+    padding-top: calc(var(--header-height) + 36px);
+    padding-bottom: 48px;
+  }
+
+  .about-story-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+    margin-top: 32px;
+  }
+
+  .about-story-text p {
+    font-size: 1.05rem;
+    line-height: 1.75;
+    margin-bottom: 18px;
+  }
+
+  .about-craft-box {
+    padding: 28px 20px;
+  }
+
+  /* Product Category Mobile Dropdown */
+  .category-filter-bar {
+    display: none;
+  }
+
+  .category-filter-dropdown-wrap {
+    display: block;
+    margin-top: 24px;
+    margin-bottom: 8px;
+    width: 100%;
+  }
+
+  .category-dropdown-label {
+    display: block;
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--color-gold);
+    margin-bottom: 8px;
+  }
+
+  .category-select-container {
+    position: relative;
+    width: 100%;
+    background-color: #FFFFFF;
+    border: 1px solid var(--border-subtle);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .category-select-container:focus-within {
+    border-color: var(--color-dark);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  }
+
+  .category-filter-select {
+    width: 100%;
+    padding: 14px 44px 14px 16px;
+    font-family: var(--font-sans);
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: var(--color-leather);
+    background: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+  }
+
+  .category-select-icon {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--color-leather);
+    pointer-events: none;
+  }
 }
 
 /* 430px and below (Modern standard smartphones) */
@@ -1931,6 +2003,10 @@ h1, h2, h3, h4, h5, h6 {
   }
 
   .contact-form-box {
+    padding: 24px 18px;
+  }
+
+  .about-craft-box {
     padding: 24px 18px;
   }
 }

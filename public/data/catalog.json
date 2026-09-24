@@ -2,9 +2,10 @@
   "categories": [
     {
       "id": "small-leather-goods",
-      "name": "Small Leather Goods",
-      "description": "Exquisitely handcrafted small accessories, key cases, card holders, and leather utilities with traditional embossed detailing.",
-      "coverImage": "/assets/categories/small-leather-goods.jpg",
+      "name": "Small Leather Articles",
+      "description": "Discover a curated collection of small leather goods that blend premium craftsmanship with artistic expression. From card holders to keychains, luggage tags, eyewear cases, and travel accessories, each piece is crafted from high-quality leather and enhanced with intricate prints, embossing, and handcrafted detailing. Designed for both functionality and visual distinction, these compact essentials offer refined organization, lasting durability, and a unique aesthetic that transforms everyday accessories into wearable works of art.",
+      "mobileDescription": "Premium small leather goods combining craftsmanship, artistic expression, and handcrafted detailing. Designed for refined organization, durability, and everyday use.",
+      "coverImage": "/assets/categories/small-leather-goods-v2.jpg",
       "products": [
         {
           "id": "small-leather-goods-om-3765",
@@ -100,8 +101,9 @@
     {
       "id": "pouches",
       "name": "Pouches",
-      "description": "Artisanal hand-painted genuine leather pouches, cosmetic cases, and multipurpose travel organizers.",
-      "coverImage": "/assets/categories/pouches.jpg",
+      "description": "MCRC offers a versatile range of leather pouches developed for beauty, travel, stationery, gifting, and everyday organization segments. Defined by meticulous attention to detail, these products are engineered to accommodate diverse storage needs while maintaining a strong visual identity. With capabilities spanning multiple sizes, constructions, closures, and decorative techniques, the category is designed to support evolving market trends and private label requirements, delivering products that combine practicality, aesthetic differentiation, and consistent manufacturing quality.",
+      "mobileDescription": "Versatile leather pouches designed for beauty, travel, stationery, gifting, and everyday organization. Available in diverse sizes, constructions, and decorative techniques.",
+      "coverImage": "/assets/categories/pouches-v2.jpg",
       "products": [
         {
           "id": "pouches-om-2016",
@@ -167,8 +169,9 @@
     {
       "id": "leather-bags",
       "name": "Leather Bags",
-      "description": "Premium handcrafted leather shoulder bags, satchels, and totes featuring iconic Shantiniketan motifs.",
-      "coverImage": "/assets/categories/leather-bags.jpg",
+      "description": "Leather bags remain one of the most important categories in the accessories industry, but differentiation increasingly lies in design and execution. MCRC’s bag range is distinguished by its use of embossed leather and hand-painted artwork, creating products with a level of detail and individuality rarely found in mass-market offerings. From everyday totes and handbags to fashion-forward silhouettes, the category demonstrates how traditional leatherworking techniques can be combined with contemporary design to create products that are both commercially relevant and visually distinctive for global brands, retailers, and private label collections.",
+      "mobileDescription": "Leather bags combining traditional craftsmanship with embossed leather and hand-painted artwork. Designed to deliver distinctive, commercially relevant styles for global brands and retailers.",
+      "coverImage": "/assets/categories/leather-bags-v2.jpg",
       "products": [
         {
           "id": "leather-bags-om-1817",
@@ -233,9 +236,10 @@
     },
     {
       "id": "coin-bags-decor",
-      "name": "Coin Bags & Decor",
-      "description": "Handcrafted coin banks, decorative animal figures, and artistic leather desk accessories.",
-      "coverImage": "/assets/categories/coin-bags-decor.jpg",
+      "name": "Decor / Coin Banks",
+      "description": "MCRC’s décor and coin bank category represents a highly specialized segment of leather craftsmanship, transforming a material traditionally used for accessories into three-dimensional decorative products. As one of the few manufacturers with the capability to develop structured décor items in leather, MCRC offers a distinctive range that stands apart in the global market. The category extends beyond animal-inspired designs to include flowers, geometric forms, vehicles, character concepts, and custom shapes developed to suit specific themes and retail programs. Combining advanced leather molding and construction techniques, these products offer a unique alternative to conventional décor materials while creating strong differentiation for gifting, lifestyle, and specialty retail segments.",
+      "mobileDescription": "Specialized three-dimensional leather décor and coin banks featuring unique shapes, themes, and handcrafted construction. Designed for gifting, lifestyle, and specialty retail.",
+      "coverImage": "/assets/categories/coin-bags-decor-v2.jpg",
       "products": [
         {
           "id": "coin-bags-decor-om-4001",
@@ -300,8 +304,9 @@
     {
       "id": "wallets",
       "name": "Wallets",
-      "description": "Classic bi-fold, tri-fold, and zip-around genuine leather wallets with handcrafted floral and geometric art.",
-      "coverImage": "/assets/categories/wallets.jpg",
+      "description": "MCRC’s wallet range showcases the fusion of fine leather craftsmanship and distinctive design, developed to meet the evolving demands of global fashion and lifestyle markets. Crafted with attention to structure, utility, and finish, these wallets feature thoughtfully engineered interiors complemented by vibrant prints, embossed artwork, and contemporary design elements. Available across a variety of formats, sizes, and aesthetics, the category reflects MCRC’s expertise in creating leather accessories that combine visual appeal, durability, and commercial relevance for international retail and private label programs.",
+      "mobileDescription": "Fine leather wallets combining thoughtful utility with vibrant prints, embossed artwork, and contemporary design. Crafted for global fashion and lifestyle markets.",
+      "coverImage": "/assets/categories/wallets-v2.jpg",
       "products": [
         {
           "id": "wallets-om-1808",
@@ -382,8 +387,9 @@
     {
       "id": "canvas-bags",
       "name": "Canvas Bags",
-      "description": "Durable eco-conscious canvas totes and carryalls trimmed and accented with hand-painted leather.",
-      "coverImage": "/assets/categories/canvas-bags.jpg",
+      "description": "MCRC’s canvas bag category combines the strength and versatility of 14-ounce canvas with the distinctive character of the company’s hand-painted and embossed leather components. By integrating these two materials, the range offers a unique balance of durability, lightweight construction, and artistic detailing. The category spans crossbody bags, backpacks, utility bags, and everyday carry styles, providing an alternative to conventional all-canvas products through the addition of signature leather accents that enhance both appearance and product value. Designed for lifestyle, travel, and casual fashion segments, these bags reflect MCRC’s ability to blend material innovation with recognizable design identity.",
+      "mobileDescription": "Durable 14-ounce canvas bags enhanced with distinctive hand-painted and embossed leather components. A balance of lightweight construction, functionality, and artistic detailing.",
+      "coverImage": "/assets/categories/canvas-bags-v2.jpg",
       "products": [
         {
           "id": "canvas-bags-om-0050",

@@ -49,7 +49,7 @@ export default function Footer({ navigate }) {
             <h4 className="footer-heading">Collections</h4>
             <div className="footer-links">
               <a href="/products/small-leather-goods" onClick={(e) => { e.preventDefault(); handleNav('/products/small-leather-goods'); }} className="footer-link">
-                Small Leather Goods
+                Small Leather Articles
               </a>
               <a href="/products/pouches" onClick={(e) => { e.preventDefault(); handleNav('/products/pouches'); }} className="footer-link">
                 Pouches
@@ -58,7 +58,7 @@ export default function Footer({ navigate }) {
                 Leather Bags
               </a>
               <a href="/products/coin-bags-decor" onClick={(e) => { e.preventDefault(); handleNav('/products/coin-bags-decor'); }} className="footer-link">
-                Coin Bags & Decor
+                Decor / Coin Banks
               </a>
               <a href="/products/wallets" onClick={(e) => { e.preventDefault(); handleNav('/products/wallets'); }} className="footer-link">
                 Wallets

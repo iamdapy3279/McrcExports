@@ -59,7 +59,7 @@ export default function AboutPage({ navigate }) {
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '12px', fontSize: '0.875rem' }}>
                   <Compass size={18} color="var(--color-gold)" />
-                  <span>Exporting to 70+ Countries Globally</span>
+                  <span>Exporting Worldwide</span>
                 </div>
               </div>
             </div>

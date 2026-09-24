@@ -6,12 +6,10 @@ import {
   Plus,
   Edit2,
   Trash2,
-  Image as ImageIcon,
   ArrowLeft,
   X,
-  ChevronUp,
-  ChevronDown,
-  Check
+  LogOut,
+  AlertCircle
 } from 'lucide-react';
 import { useCatalog } from '../context/CatalogContext';
 
@@ -29,19 +27,51 @@ export default function AdminPage({ navigate }) {
     resetToDefaultCatalog
   } = useCatalog();
 
+  // Simple frontend access gate state
+  const [isAuthenticated, setIsAuthenticated] = useState(() => {
+    return localStorage.getItem('mcrc_admin_auth') === 'true';
+  });
+  const [loginEmail, setLoginEmail] = useState('');
+  const [loginPassword, setLoginPassword] = useState('');
+  const [loginError, setLoginError] = useState('');
+
   const [activeCategoryView, setActiveCategoryView] = useState(null);
   const [editingCategoryModal, setEditingCategoryModal] = useState(null);
   const [editingProductModal, setEditingProductModal] = useState(null); // { isNew: bool, product: {...}, categoryId: str }
   const fileImportRef = useRef(null);
 
-  if (!catalog) {
-    return <div style={{ padding: '100px', textAlign: 'center' }}>Loading Catalog Data...</div>;
-  }
+  // Authentication handlers
+  const handleLogin = (e) => {
+    e.preventDefault();
+    if (
+      loginEmail.trim().toLowerCase() === 'mcrcpltd@gmail.com' &&
+      loginPassword === 'password@mcrcpltd'
+    ) {
+      localStorage.setItem('mcrc_admin_auth', 'true');
+      setIsAuthenticated(true);
+      setLoginError('');
+    } else {
+      setLoginError('Invalid email or password.');
+    }
+  };
 
-  const categories = catalog.categories || [];
-  const currentSelectedCategory = activeCategoryView
-    ? categories.find((c) => c.id === activeCategoryView)
-    : null;
+  const handleLogout = () => {
+    localStorage.removeItem('mcrc_admin_auth');
+    setIsAuthenticated(false);
+    setLoginEmail('');
+    setLoginPassword('');
+    setLoginError('');
+  };
+
+  // Convert uploaded image file to data URL
+  const handleImageUpload = (file, callback) => {
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      callback(e.target.result);
+    };
+    reader.readAsDataURL(file);
+  };
 
   // Import JSON handler
   const handleFileImport = (e) => {
@@ -55,26 +85,127 @@ export default function AdminPage({ navigate }) {
     reader.readAsText(file);
   };
 
-  // Convert uploaded image file to data URL
-  const handleImageUpload = (file, callback) => {
-    if (!file) return;
-    const reader = new FileReader();
-    reader.onload = (e) => {
-      callback(e.target.result);
-    };
-    reader.readAsDataURL(file);
+  // Move gallery image order
+  const moveGalleryImage = (fromIdx, toIdx) => {
+    if (!editingProductModal?.product?.images) return;
+    const images = [...editingProductModal.product.images];
+    if (toIdx < 0 || toIdx >= images.length) return;
+    const item = images.splice(fromIdx, 1)[0];
+    images.splice(toIdx, 0, item);
+    setEditingProductModal({
+      ...editingProductModal,
+      product: { ...editingProductModal.product, images }
+    });
   };
+
+  // 1. LOGIN SCREEN GATE
+  if (!isAuthenticated) {
+    return (
+      <div className="admin-login-wrapper">
+        <div className="admin-login-card">
+          <div className="admin-login-header">
+            <img
+              src="/assets/branding/logo.png"
+              alt="MCRC Exports"
+              className="admin-login-logo"
+            />
+            <h1 className="admin-login-title">MCRC EXPORTS</h1>
+            <p className="admin-login-subtitle">Catalog Admin Gate</p>
+          </div>
+
+          {loginError && (
+            <div className="admin-login-error">
+              <AlertCircle size={16} style={{ flexShrink: 0 }} />
+              <span>{loginError}</span>
+            </div>
+          )}
+
+          <form onSubmit={handleLogin}>
+            <div className="form-group">
+              <label className="form-label">Email</label>
+              <input
+                type="email"
+                required
+                className="form-input"
+                placeholder="mcrcpltd@gmail.com"
+                value={loginEmail}
+                onChange={(e) => setLoginEmail(e.target.value)}
+                autoComplete="email"
+              />
+            </div>
+
+            <div className="form-group">
+              <label className="form-label">Password</label>
+              <input
+                type="password"
+                required
+                className="form-input"
+                placeholder="password@mcrcpltd"
+                value={loginPassword}
+                onChange={(e) => setLoginPassword(e.target.value)}
+                autoComplete="current-password"
+              />
+            </div>
+
+            <button
+              type="submit"
+              className="btn btn-primary"
+              style={{ width: '100%', marginTop: '8px' }}
+            >
+              Login
+            </button>
+          </form>
+
+          <div style={{ textAlign: 'center', marginTop: '20px' }}>
+            <button
+              type="button"
+              onClick={() => navigate('/')}
+              style={{
+                background: 'none',
+                border: 'none',
+                color: 'var(--color-text-secondary)',
+                fontSize: '0.85rem',
+                cursor: 'pointer',
+                textDecoration: 'underline'
+              }}
+            >
+              ← Back to Public Website
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  // 2. AUTHENTICATED ADMIN DASHBOARD
+  if (!catalog) {
+    return <div style={{ padding: '100px', textAlign: 'center' }}>Loading Catalog Data...</div>;
+  }
+
+  const categories = catalog.categories || [];
+  const currentSelectedCategory = activeCategoryView
+    ? categories.find((c) => c.id === activeCategoryView)
+    : null;
 
   return (
     <div className="admin-wrapper">
-      {/* Admin Top Bar */}
+      {/* Admin Header Bar */}
       <div className="admin-header-bar">
         <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-          <h1 className="admin-title">MCRC Catalog Admin</h1>
-          <span className="admin-badge">Internal CMS</span>
+          <h1 className="admin-title">MCRC EXPORTS — CATALOG ADMIN</h1>
         </div>
 
         <div className="admin-header-actions">
+          <button
+            type="button"
+            className="btn btn-admin btn-admin-delete"
+            onClick={handleLogout}
+            title="Log out of catalog admin"
+          >
+            <LogOut size={14} style={{ marginRight: '6px' }} />
+            <span>Logout</span>
+          </button>
+
           <button
             type="button"
             className="btn btn-admin"
@@ -115,7 +246,8 @@ export default function AdminPage({ navigate }) {
 
           <button
             type="button"
-            className="btn btn-admin btn-admin-delete"
+            className="btn btn-admin"
+            style={{ backgroundColor: 'rgba(255,255,255,0.08)', color: '#DDD' }}
             onClick={() => {
               if (window.confirm('Reset all catalog customizations back to original default assets?')) {
                 resetToDefaultCatalog();
@@ -134,23 +266,7 @@ export default function AdminPage({ navigate }) {
           /* ================= CATEGORIES VIEW ================= */
           <div className="admin-card">
             <div className="admin-card-title">
-              <span>Categories ({categories.length})</span>
-              <button
-                type="button"
-                className="btn btn-admin btn-admin-edit"
-                onClick={() =>
-                  setEditingCategoryModal({
-                    id: '',
-                    name: '',
-                    description: '',
-                    coverImage: '/assets/branding/logo.png',
-                    isNew: true
-                  })
-                }
-              >
-                <Plus size={14} style={{ marginRight: '4px' }} />
-                <span>Add Category</span>
-              </button>
+              <span>CATEGORIES ({categories.length})</span>
             </div>
 
             <table className="admin-table">
@@ -173,7 +289,7 @@ export default function AdminPage({ navigate }) {
                       />
                     </td>
                     <td>
-                      <strong>{cat.name}</strong>
+                      <strong style={{ fontSize: '1.05rem' }}>{cat.name}</strong>
                       <div style={{ fontSize: '0.8rem', color: 'var(--color-text-muted)' }}>
                         ID: {cat.id}
                       </div>
@@ -184,7 +300,13 @@ export default function AdminPage({ navigate }) {
                         <button
                           type="button"
                           className="btn btn-admin btn-admin-edit"
-                          onClick={() => setEditingCategoryModal(cat)}
+                          onClick={() =>
+                            setEditingCategoryModal({
+                              ...cat,
+                              description: cat.description || '',
+                              mobileDescription: cat.mobileDescription || ''
+                            })
+                          }
                         >
                           <Edit2 size={12} style={{ marginRight: '4px' }} />
                           Edit
@@ -283,7 +405,7 @@ export default function AdminPage({ navigate }) {
                             setEditingProductModal({
                               isNew: false,
                               categoryId: currentSelectedCategory.id,
-                              product: { ...prod }
+                              product: { ...prod, images: prod.images ? [...prod.images] : [] }
                             })
                           }
                         >
@@ -315,7 +437,7 @@ export default function AdminPage({ navigate }) {
       {/* ================= EDIT CATEGORY MODAL ================= */}
       {editingCategoryModal && (
         <div className="admin-modal-backdrop">
-          <div className="admin-modal-box">
+          <div className="admin-modal-box" style={{ maxWidth: '640px' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '20px' }}>
               <h3 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.6rem' }}>
                 {editingCategoryModal.isNew ? 'Add Category' : 'Edit Category'}
@@ -323,7 +445,7 @@ export default function AdminPage({ navigate }) {
               <button
                 type="button"
                 onClick={() => setEditingCategoryModal(null)}
-                style={{ cursor: 'pointer' }}
+                style={{ cursor: 'pointer', background: 'none', border: 'none' }}
               >
                 <X size={20} />
               </button>
@@ -340,6 +462,7 @@ export default function AdminPage({ navigate }) {
                 setEditingCategoryModal(null);
               }}
             >
+              {/* 1. Category Name */}
               <div className="form-group">
                 <label className="form-label">Category Name</label>
                 <input
@@ -350,32 +473,19 @@ export default function AdminPage({ navigate }) {
                     setEditingCategoryModal({ ...editingCategoryModal, name: e.target.value })
                   }
                   className="form-input"
+                  placeholder="e.g. Small Leather Articles"
                 />
               </div>
 
+              {/* 2. Cover Image */}
               <div className="form-group">
-                <label className="form-label">Description</label>
-                <textarea
-                  rows="3"
-                  value={editingCategoryModal.description || ''}
-                  onChange={(e) =>
-                    setEditingCategoryModal({
-                      ...editingCategoryModal,
-                      description: e.target.value
-                    })
-                  }
-                  className="form-textarea"
-                />
-              </div>
-
-              <div className="form-group">
-                <label className="form-label">Category Cover Image</label>
+                <label className="form-label">Cover Image</label>
                 {editingCategoryModal.coverImage && (
                   <div style={{ marginBottom: '10px' }}>
                     <img
                       src={editingCategoryModal.coverImage}
                       alt="Cover Preview"
-                      style={{ maxHeight: '160px', objectFit: 'cover', border: '1px solid #ccc' }}
+                      style={{ maxHeight: '140px', borderRadius: '4px', objectFit: 'cover', border: '1px solid #ccc' }}
                     />
                   </div>
                 )}
@@ -393,6 +503,47 @@ export default function AdminPage({ navigate }) {
                 />
               </div>
 
+              {/* 3. Desktop Description */}
+              <div className="form-group">
+                <label className="form-label">Desktop Description</label>
+                <p style={{ fontSize: '0.8rem', color: 'var(--color-text-muted)', marginBottom: '6px' }}>
+                  Full description shown on desktop and tablet.
+                </p>
+                <textarea
+                  rows="6"
+                  value={editingCategoryModal.description || ''}
+                  onChange={(e) =>
+                    setEditingCategoryModal({
+                      ...editingCategoryModal,
+                      description: e.target.value
+                    })
+                  }
+                  className="form-textarea"
+                  placeholder="Enter full desktop description..."
+                />
+              </div>
+
+              {/* 4. Mobile Description */}
+              <div className="form-group">
+                <label className="form-label">Mobile Description</label>
+                <p style={{ fontSize: '0.8rem', color: 'var(--color-text-muted)', marginBottom: '6px' }}>
+                  Shortened description designed to fit into approximately 2 lines on mobile.
+                </p>
+                <textarea
+                  rows="3"
+                  value={editingCategoryModal.mobileDescription || ''}
+                  onChange={(e) =>
+                    setEditingCategoryModal({
+                      ...editingCategoryModal,
+                      mobileDescription: e.target.value
+                    })
+                  }
+                  className="form-textarea"
+                  placeholder="Enter mobile description..."
+                />
+              </div>
+
+              {/* 5. Save Category */}
               <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '12px', marginTop: '24px' }}>
                 <button
                   type="button"
@@ -421,7 +572,7 @@ export default function AdminPage({ navigate }) {
               <button
                 type="button"
                 onClick={() => setEditingProductModal(null)}
-                style={{ cursor: 'pointer' }}
+                style={{ cursor: 'pointer', background: 'none', border: 'none' }}
               >
                 <X size={20} />
               </button>
@@ -525,8 +676,11 @@ export default function AdminPage({ navigate }) {
               {/* Gallery Images */}
               <div className="form-group">
                 <label className="form-label">
-                  Gallery Images ({editingProductModal.product.images?.length || 0} images)
+                  Product Gallery ({editingProductModal.product.images?.length || 0} images)
                 </label>
+                <p style={{ fontSize: '0.8rem', color: 'var(--color-text-muted)', marginBottom: '8px' }}>
+                  Upload approximately 4–5 images. Use arrows to reorder or &times; to remove.
+                </p>
                 <input
                   type="file"
                   accept="image/*"
@@ -568,8 +722,28 @@ export default function AdminPage({ navigate }) {
                         }}
                         title="Remove image"
                       >
-                        ×
+                        &times;
                       </button>
+                      <div className="admin-gallery-order-btns">
+                        <button
+                          type="button"
+                          className="admin-gallery-arrow-btn"
+                          disabled={idx === 0}
+                          onClick={() => moveGalleryImage(idx, idx - 1)}
+                          title="Move left"
+                        >
+                          ‹
+                        </button>
+                        <button
+                          type="button"
+                          className="admin-gallery-arrow-btn"
+                          disabled={idx === editingProductModal.product.images.length - 1}
+                          onClick={() => moveGalleryImage(idx, idx + 1)}
+                          title="Move right"
+                        >
+                          ›
+                        </button>
+                      </div>
                     </div>
                   ))}
                 </div>

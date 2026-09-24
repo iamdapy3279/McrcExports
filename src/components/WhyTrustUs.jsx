@@ -9,8 +9,8 @@ const TRUST_CARDS = [
   },
   {
     icon: History,
-    title: '24 Years of Experience',
-    desc: '24 years of expertise in manufacturing and exporting products across the world'
+    title: 'Years of Experience',
+    desc: 'Years of expertise in manufacturing and exporting products across the world'
   },
   {
     icon: Sparkles,

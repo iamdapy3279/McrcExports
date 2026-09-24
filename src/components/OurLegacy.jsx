@@ -16,9 +16,6 @@ export default function OurLegacy({ navigate }) {
                 loading="lazy"
               />
             </div>
-            <div className="legacy-stamp">
-              <span>Shantiniketan Craftsmanship</span>
-            </div>
           </div>
 
           {/* Narrative Column */}

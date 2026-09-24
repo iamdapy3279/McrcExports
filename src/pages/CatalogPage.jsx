@@ -2,6 +2,27 @@ import React, { useMemo } from 'react';
 import { ArrowRight, ChevronDown } from 'lucide-react';
 import { useCatalog } from '../context/CatalogContext';
 
+const MOBILE_CATEGORY_DESCRIPTIONS = {
+  'small-leather-goods':
+    'Premium small leather goods combining craftsmanship, artistic expression, and handcrafted detailing. Designed for refined organization, durability, and everyday use.',
+  wallets:
+    'Fine leather wallets combining thoughtful utility with vibrant prints, embossed artwork, and contemporary design. Crafted for global fashion and lifestyle markets.',
+  pouches:
+    'Versatile leather pouches designed for beauty, travel, stationery, gifting, and everyday organization. Available in diverse sizes, constructions, and decorative techniques.',
+  'coin-bags-decor':
+    'Specialized three-dimensional leather décor and coin banks featuring unique shapes, themes, and handcrafted construction. Designed for gifting, lifestyle, and specialty retail.',
+  'leather-bags':
+    'Leather bags combining traditional craftsmanship with embossed leather and hand-painted artwork. Designed to deliver distinctive, commercially relevant styles for global brands and retailers.',
+  'canvas-bags':
+    'Durable 14-ounce canvas bags enhanced with distinctive hand-painted and embossed leather components. A balance of lightweight construction, functionality, and artistic detailing.'
+};
+
+const ALL_PRODUCTS_DESC_DESKTOP =
+  'Explore a collection of handcrafted and hand-painted genuine leather products, showcasing a variety of designs, techniques, and finishes we can create. This selection offers a glimpse into our manufacturing capabilities and customization abilities. Kindly contact us for a full range of products and prints.';
+
+const ALL_PRODUCTS_DESC_MOBILE =
+  'Explore handcrafted and hand-painted genuine leather products showcasing our diverse designs, techniques, and finishes. Contact us for our full product range and customization options.';
+
 export default function CatalogPage({ categoryFilter, navigate }) {
   const { catalog, openProductModal } = useCatalog();
 
@@ -53,10 +74,15 @@ export default function CatalogPage({ categoryFilter, navigate }) {
           <h1 className="section-title">
             {currentCategory ? currentCategory.name : 'All Product Collections'}
           </h1>
-          <p className="section-desc">
+          <p className="section-desc desktop-desc">
+            {currentCategory ? currentCategory.description : ALL_PRODUCTS_DESC_DESKTOP}
+          </p>
+          <p className="section-desc mobile-desc">
             {currentCategory
-              ? currentCategory.description
-              : 'Browse our complete catalog of handcrafted and hand-painted genuine leather export models. Select any item to inspect multi-angle craftsmanship.'}
+              ? (currentCategory.mobileDescription ||
+                 MOBILE_CATEGORY_DESCRIPTIONS[currentCategory.id] ||
+                 currentCategory.description)
+              : ALL_PRODUCTS_DESC_MOBILE}
           </p>
 
           {/* Category Filter Pills (Desktop) */}

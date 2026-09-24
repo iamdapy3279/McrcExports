@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 
-const LOCAL_STORAGE_KEY = 'mcrc_catalog_data_v2';
+const LOCAL_STORAGE_KEY = 'mcrc_catalog_data_v6';
 
 const cleanProductName = (name) => {
   if (!name) return name;
@@ -13,6 +13,8 @@ const sanitizeCatalog = (data) => {
     ...data,
     categories: data.categories.map((cat) => ({
       ...cat,
+      description: cat.description || '',
+      mobileDescription: cat.mobileDescription || '',
       products: (cat.products || []).map((prod) => ({
         ...prod,
         name: cleanProductName(prod.name)

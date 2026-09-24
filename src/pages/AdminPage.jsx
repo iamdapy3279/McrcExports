@@ -127,7 +127,6 @@ export default function AdminPage({ navigate }) {
                 type="email"
                 required
                 className="form-input"
-                placeholder="mcrcpltd@gmail.com"
                 value={loginEmail}
                 onChange={(e) => setLoginEmail(e.target.value)}
                 autoComplete="email"
@@ -140,7 +139,6 @@ export default function AdminPage({ navigate }) {
                 type="password"
                 required
                 className="form-input"
-                placeholder="password@mcrcpltd"
                 value={loginPassword}
                 onChange={(e) => setLoginPassword(e.target.value)}
                 autoComplete="current-password"

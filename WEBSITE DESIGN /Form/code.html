@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Admin - Add Product to Catalogue | notch</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+<script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            primary: "#012d1d",
+            "primary-container": "#1b4332",
+            "primary-fixed": "#c1ecd4",
+            "primary-fixed-dim": "#a5d0b9",
+            secondary: "#116c4a",
+            "secondary-container": "#a1f4c8",
+            "secondary-fixed": "#a1f4c8",
+            surface: "#f7faf5",
+            "surface-dim": "#d8dbd6",
+            "surface-container-low": "#f1f4f0",
+            "surface-container": "#ecefea",
+            "surface-container-high": "#e6e9e4",
+            "surface-container-lowest": "#ffffff",
+            "on-surface": "#191c1a",
+            "on-surface-variant": "#414844",
+            outline: "#717973",
+            "outline-variant": "#c1c8c2",
+          },
+          fontFamily: {
+            outfit: ["Outfit", "sans-serif"],
+            jakarta: ["Plus Jakarta Sans", "sans-serif"],
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+  </style>
+</head>
+<body class="bg-[#f4f7f2] text-on-surface font-jakarta antialiased min-h-screen py-8 md:py-12 px-4 sm:px-6 lg:px-8 selection:bg-secondary-fixed selection:text-primary">
+<div class="max-w-5xl mx-auto">
+<!-- Top Action / Context Header Bar (No full site nav, strictly admin context) -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between pb-6 mb-8 border-b border-outline-variant/50 gap-4">
+<div>
+<div class="flex items-center gap-2 mb-1.5">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-semibold uppercase tracking-wider bg-secondary-container/60 text-secondary border border-secondary/30 font-mono">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary inline-block"></span> Admin Catalog Ingestion
+          </span>
+<span class="text-xs text-outline font-mono">v2.4 Live Store Sync</span>
+</div>
+<h1 class="text-2xl sm:text-3xl font-bold font-outfit text-primary tracking-tight">Add New Catalogue Item</h1>
+<p class="text-sm text-on-surface-variant mt-0.5">Publish new handcrafted collections, B2B specs, and volume variants directly into the master catalogue.</p>
+</div>
+<div class="flex items-center gap-3 shrink-0">
+<button class="px-4 py-2 text-sm font-semibold text-on-surface-variant bg-surface-container hover:bg-surface-container-high rounded-lg border border-outline-variant/60 transition-colors" type="button">
+          Discard Draft
+        </button>
+<button class="inline-flex items-center gap-2 px-5 py-2 text-sm font-semibold text-white bg-primary hover:bg-primary-container rounded-lg shadow-sm hover:shadow transition-all" onclick="document.getElementById('publishBtn').click()" type="button">
+<span class="material-symbols-outlined text-lg">check_circle</span>
+          Save &amp; Publish
+        </button>
+</div>
+</div>
+<!-- Main Ingestion Form Form Container -->
+<form class="space-y-8" id="productForm" onsubmit="event.preventDefault(); showSuccessFeedback();">
+<!-- SECTION 1: CORE CLASSIFICATION & TITLE -->
+<div class="bg-surface-container-lowest rounded-2xl p-6 sm:p-8 border border-outline-variant/40 shadow-sm space-y-6">
+<div class="flex items-center justify-between border-b border-outline-variant/30 pb-4">
+<div class="flex items-center gap-2.5">
+<div class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-lg">category</span>
+</div>
+<div>
+<h2 class="text-lg font-bold font-outfit text-primary">Item Identity &amp; Classification</h2>
+<p class="text-xs text-outline">Category hierarchies, product title, and global SKU/Model numbering.</p>
+</div>
+</div>
+<span class="text-xs font-mono text-outline">Required Fields *</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-5">
+<!-- Category -->
+<div class="md:col-span-4">
+<label class="block text-xs font-bold uppercase tracking-wider text-primary mb-2">Category *</label>
+<input class="w-full px-3.5 py-2.5 rounded-lg border border-outline-variant/70 focus:border-secondary focus:ring-2 focus:ring-secondary/20 text-sm font-semibold bg-surface-container-lowest text-primary" required="" type="text" value="SMALL LEATHER GOODS"/>
+</div>
+<!-- Product Name / Title -->
+<div class="md:col-span-5">
+<label class="block text-xs font-bold uppercase tracking-wider text-primary mb-2">Product Name *</label>
+<input class="w-full px-3.5 py-2.5 rounded-lg border border-outline-variant/70 focus:border-secondary focus:ring-2 focus:ring-secondary/20 text-sm font-semibold bg-surface-container-lowest text-primary" required="" type="text" value="Handcrafted Leather Good"/>
+</div>
+<!-- Model Identifier -->
+<div class="md:col-span-3">
+<label class="block text-xs font-bold uppercase tracking-wider text-primary mb-2">Model Code *</label>
+<div class="relative">
+<span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-outline text-xs font-mono">#</span>
+<input class="w-full pl-7 pr-3.5 py-2.5 rounded-lg border border-outline-variant/70 focus:border-secondary focus:ring-2 focus:ring-secondary/20 text-sm font-mono font-bold bg-surface-container-lowest text-primary" required="" type="text" value="OM-7637"/>
+</div>
+</div>
+<!-- Item Narrative Description -->
+<div class="md:col-span-12">
+<label class="block text-xs font-bold uppercase tracking-wider text-primary mb-2">Catalogue Narrative Description *</label>
+<textarea class="w-full px-4 py-3 rounded-lg border border-outline-variant/70 focus:border-secondary focus:ring-2 focus:ring-secondary/20 text-sm leading-relaxed bg-surface-container-lowest text-on-surface" required="" rows="3">Masterfully handcrafted in Kolkata using traditional Shantiniketan embossing and hand-painting techniques. Model OM-7637 is built for international commercial durability and distinctive artisanal luxury.</textarea>
+<span class="text-xs text-outline mt-1 block">Displayed on front-end B2B catalogue card &amp; modal detail view.</span>
+</div>
+</div>
+</div>
+<!-- SECTION 2: SPECIFICATIONS & B2B COMMERCIAL PARAMETERS -->
+<div class="bg-surface-container-lowest rounded-2xl p-6 sm:p-8 border border-outline-variant/40 shadow-sm space-y-6">
+<div class="flex items-center gap-2.5 border-b border-outline-variant/30 pb-4">
+<div class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-lg">fact_check</span>
+</div>
+<div>
+<h2 class="text-lg font-bold font-outfit text-primary">Technical Specs &amp; Export Compliance</h2>
+<p class="text-xs text-outline">Material origins, craftsmanship standards, and customized client options.</p>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+<!-- Artisan Technique -->
+<div>
+<label class="block text-xs font-bold uppercase tracking-wider text-primary mb-1.5 flex items-center justify-between">
+<span>Artisan Technique</span>
+<span class="text-[11px] font-normal text-outline">Benchmark Standard</span>
+</label>
+<div class="relative">
+<span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-secondary">
+<span class="material-symbols-outlined text-base">palette</span>
+</span>
+<input class="w-full pl-10 pr-4 py-2.5 rounded-lg border border-outline-variant/70 focus:border-secondary focus:ring-2 focus:ring-secondary/20 text-sm bg-surface-container-lowest text-on-surface" type="text" value="Commercial Export Quality"/>
+</div>
+</div>
+<!-- Material -->
+<div>
+<label class="block text-xs font-bold uppercase tracking-wider text-primary mb-1.5 flex items-center justify-between">
+<span>Material Composition</span>
+<span class="text-[11px] font-normal text-outline">Audited Grade</span>
+</label>
+<div class="relative">
+<span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-secondary">
+<span class="material-symbols-outlined text-base">eco</span>
+</span>
+<input class="w-full pl-10 pr-4 py-2.5 rounded-lg border border-outline-variant/70 focus:border-secondary focus:ring-2 focus:ring-secondary/20 text-sm bg-surface-container-lowest text-on-surface" type="text" value="Premium Sustainable Materials"/>
+</div>
+</div>
+<!-- Manufacturing Origin -->
+<div>
+<label class="block text-xs font-bold uppercase tracking-wider text-primary mb-1.5 flex items-center justify-between">
+<span>Manufacturing Origin &amp; Port Hub</span>
+<span class="text-[11px] font-normal text-outline">Customs Clearance</span>
+</label>
+<div class="relative">
+<span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-secondary">
+<span class="material-symbols-outlined text-base">anchor</span>
+</span>
+<input class="w-full pl-10 pr-4 py-2.5 rounded-lg border border-outline-variant/70 focus:border-secondary focus:ring-2 focus:ring-secondary/20 text-sm bg-surface-container-lowest text-on-surface" type="text" value="Export Hub: Mundra &amp; JNPT (India)"/>
+</div>
+</div>
+<!-- B2B Customization -->
+<div>
+<label class="block text-xs font-bold uppercase tracking-wider text-primary mb-1.5 flex items-center justify-between">
+<span>B2B Customization Options</span>
+<span class="text-[11px] font-normal text-outline">Private Label / OEM</span>
+</label>
+<div class="relative">
+<span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-secondary">
+<span class="material-symbols-outlined text-base">design_services</span>
+</span>
+<input class="w-full pl-10 pr-4 py-2.5 rounded-lg border border-outline-variant/70 focus:border-secondary focus:ring-2 focus:ring-secondary/20 text-sm bg-surface-container-lowest text-on-surface" type="text" value="Custom Colors, Logos &amp; Dimensions"/>
+</div>
+</div>
+</div>
+<!-- SIZES INPUT BOX (Interactive Multi-tag / Dimension Matrix) -->
+<div class="pt-4 border-t border-outline-variant/30">
+<div class="flex items-center justify-between mb-2">
+<label class="block text-xs font-bold uppercase tracking-wider text-primary">Sizes &amp; Dimension Variants</label>
+<span class="text-xs text-outline">Press Enter or comma to add dimensions</span>
+</div>
+<!-- Tag Cloud Input Box Container -->
+<div class="p-3 rounded-xl border border-outline-variant/70 bg-surface-container-low focus-within:border-secondary focus-within:ring-2 focus-within:ring-secondary/20 transition-all">
+<div class="flex flex-wrap items-center gap-2 mb-2" id="sizesTagContainer">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-surface-container-lowest text-xs font-semibold text-primary border border-outline-variant/60 shadow-2xl">
+                Small (10 x 8 cm)
+                <button class="text-outline hover:text-red-600 transition-colors" onclick="this.parentElement.remove()" type="button">
+<span class="material-symbols-outlined text-sm">close</span>
+</button>
+</span>
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-surface-container-lowest text-xs font-semibold text-primary border border-outline-variant/60 shadow-2xl">
+                Medium (18 x 10 cm)
+                <button class="text-outline hover:text-red-600 transition-colors" onclick="this.parentElement.remove()" type="button">
+<span class="material-symbols-outlined text-sm">close</span>
+</button>
+</span>
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-surface-container-lowest text-xs font-semibold text-primary border border-outline-variant/60 shadow-2xl">
+                Standard B2B Case Pack (24 Units)
+                <button class="text-outline hover:text-red-600 transition-colors" onclick="this.parentElement.remove()" type="button">
+<span class="material-symbols-outlined text-sm">close</span>
+</button>
+</span>
+</div>
+<div class="flex items-center gap-2">
+<input class="w-full px-3 py-1.5 text-sm bg-transparent border-0 focus:ring-0 text-on-surface placeholder-outline/60" id="sizeInput" onkeydown="handleSizeKey(event)" placeholder="Add custom dimensions (e.g., Large 22 x 12 cm or Custom Die-Cut)..." type="text"/>
+<button class="px-3 py-1.5 bg-primary text-white text-xs font-semibold rounded-lg hover:bg-primary-container transition-colors shrink-0" onclick="addSizeTag()" type="button">
+                + Add Size
+              </button>
+</div>
+</div>
+</div>
+</div>
+<!-- SECTION 3: MULTIPLE IMAGES UPLOAD & GALLERY ASSETS -->
+<div class="bg-surface-container-lowest rounded-2xl p-6 sm:p-8 border border-outline-variant/40 shadow-sm space-y-6">
+<div class="flex items-center justify-between border-b border-outline-variant/30 pb-4">
+<div class="flex items-center gap-2.5">
+<div class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-lg">photo_library</span>
+</div>
+<div>
+<h2 class="text-lg font-bold font-outfit text-primary">Multiple Product Media &amp; Photography</h2>
+<p class="text-xs text-outline">Upload high-res packshots, macro embossing close-ups, and export packaging photos.</p>
+</div>
+</div>
+<span class="text-xs font-mono px-2.5 py-1 rounded bg-secondary-container/50 text-secondary font-semibold">3 Active Media Assets</span>
+</div>
+<!-- Drag & Drop Upload Zone -->
+<div class="border-2 border-dashed border-outline-variant/80 hover:border-secondary rounded-2xl p-8 text-center bg-surface-container-low/50 hover:bg-surface-container-low transition-colors cursor-pointer group">
+<div class="w-14 h-14 rounded-full bg-surface-container-lowest mx-auto flex items-center justify-center text-secondary shadow-sm group-hover:scale-105 transition-transform mb-3">
+<span class="material-symbols-outlined text-2xl">cloud_upload</span>
+</div>
+<h3 class="text-sm font-bold text-primary font-outfit">Drag &amp; drop multiple product images or <span class="text-secondary underline">browse files</span></h3>
+<p class="text-xs text-outline mt-1">Supports high-res JPG, PNG, WEBP, or RAW packshots up to 25MB each</p>
+</div>
+<!-- Uploaded Images Grid Showcase -->
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-4" id="imageGallery">
+<!-- Image 1 (Cover Photo) -->
+<div class="relative group rounded-xl overflow-hidden border-2 border-secondary bg-surface-container aspect-square shadow-sm">
+<img alt="Handcrafted Leather Good View 1" class="w-full h-full object-cover" src="https://www.gstatic.com/labs-code/stitch/stitch-placeholder-300x300.svg"/>
+<span class="absolute top-2 left-2 px-2 py-0.5 rounded text-[10px] font-bold tracking-wider uppercase bg-primary text-white">Cover</span>
+<div class="absolute inset-0 bg-primary/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2">
+<button class="w-8 h-8 rounded-full bg-white text-primary flex items-center justify-center hover:bg-red-500 hover:text-white transition-colors" onclick="this.closest('.relative').remove()" title="Delete" type="button">
+<span class="material-symbols-outlined text-base">delete</span>
+</button>
+</div>
+<div class="absolute bottom-0 inset-x-0 bg-black/50 text-[10px] text-white p-1 text-center truncate">Hero-Front-Angle.jpg</div>
+</div>
+<!-- Image 2 (Detail Shot) -->
+<div class="relative group rounded-xl overflow-hidden border border-outline-variant/60 bg-surface-container aspect-square shadow-sm">
+<img alt="Embossing Detail" class="w-full h-full object-cover" src="https://www.gstatic.com/labs-code/stitch/stitch-placeholder-300x300.svg"/>
+<div class="absolute inset-0 bg-primary/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2">
+<button class="w-8 h-8 rounded-full bg-white text-primary flex items-center justify-center hover:bg-secondary hover:text-white transition-colors" title="Set as Cover" type="button">
+<span class="material-symbols-outlined text-base">star</span>
+</button>
+<button class="w-8 h-8 rounded-full bg-white text-primary flex items-center justify-center hover:bg-red-500 hover:text-white transition-colors" onclick="this.closest('.relative').remove()" title="Delete" type="button">
+<span class="material-symbols-outlined text-base">delete</span>
+</button>
+</div>
+<div class="absolute bottom-0 inset-x-0 bg-black/50 text-[10px] text-white p-1 text-center truncate">Embossing-Macro.jpg</div>
+</div>
+<!-- Image 3 (Interior / Sizes View) -->
+<div class="relative group rounded-xl overflow-hidden border border-outline-variant/60 bg-surface-container aspect-square shadow-sm">
+<img alt="Interior Details" class="w-full h-full object-cover" src="https://www.gstatic.com/labs-code/stitch/stitch-placeholder-300x300.svg"/>
+<div class="absolute inset-0 bg-primary/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2">
+<button class="w-8 h-8 rounded-full bg-white text-primary flex items-center justify-center hover:bg-secondary hover:text-white transition-colors" title="Set as Cover" type="button">
+<span class="material-symbols-outlined text-base">star</span>
+</button>
+<button class="w-8 h-8 rounded-full bg-white text-primary flex items-center justify-center hover:bg-red-500 hover:text-white transition-colors" onclick="this.closest('.relative').remove()" title="Delete" type="button">
+<span class="material-symbols-outlined text-base">delete</span>
+</button>
+</div>
+<div class="absolute bottom-0 inset-x-0 bg-black/50 text-[10px] text-white p-1 text-center truncate">Compartment-Lining.jpg</div>
+</div>
+<!-- Add Another Slot Tile -->
+<div class="rounded-xl border-2 border-dashed border-outline-variant/60 hover:border-secondary flex flex-col items-center justify-center aspect-square text-outline hover:text-secondary bg-surface-container-low transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-2xl mb-1">add_photo_alternate</span>
+<span class="text-xs font-semibold">+ Add Image</span>
+</div>
+</div>
+</div>
+<!-- BOTTOM CONTROL TRAY -->
+<div class="pt-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+<div class="flex items-center gap-2 text-xs text-outline">
+<span class="material-symbols-outlined text-base text-secondary">verified_user</span>
+<span>Automatic audit validation: B2B Export Compliance metadata initialized.</span>
+</div>
+<div class="flex items-center gap-3 w-full sm:w-auto">
+<button class="w-full sm:w-auto px-6 py-3 rounded-lg border border-outline-variant/70 text-sm font-semibold text-on-surface hover:bg-surface-container-high transition-colors" type="button">
+            Save as Draft
+          </button>
+<button class="w-full sm:w-auto px-8 py-3 rounded-lg bg-primary hover:bg-primary-container text-white text-sm font-bold shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2" id="publishBtn" type="submit">
+<span class="material-symbols-outlined text-lg">publish</span>
+<span>Publish to Catalogue</span>
+</button>
+</div>
+</div>
+</form>
+<!-- Success Toast Modal (Hidden by default) -->
+<div class="fixed bottom-6 right-6 z-50 transform translate-y-32 opacity-0 transition-all duration-300 pointer-events-none" id="successToast">
+<div class="bg-primary text-white px-5 py-4 rounded-xl shadow-2xl border border-primary-fixed/30 flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary-fixed text-2xl">check_circle</span>
+<div>
+<div class="font-bold font-outfit text-sm">Product Successfully Published!</div>
+<div class="text-xs text-primary-fixed-dim">Model OM-7637 is now live in the B2B catalog.</div>
+</div>
+</div>
+</div>
+</div>
+<script>
+    function handleSizeKey(e) {
+      if (e.key === 'Enter' || e.key === ',') {
+        e.preventDefault();
+        addSizeTag();
+      }
+    }
+
+    function addSizeTag() {
+      const input = document.getElementById('sizeInput');
+      const val = input.value.trim().replace(/^,|,$/g, '');
+      if (val) {
+        const container = document.getElementById('sizesTagContainer');
+        const tag = document.createElement('span');
+        tag.className = 'inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-surface-container-lowest text-xs font-semibold text-primary border border-outline-variant/60 shadow-sm';
+        tag.innerHTML = `${val} <button type="button" onclick="this.parentElement.remove()" class="text-outline hover:text-red-600 transition-colors"><span class="material-symbols-outlined text-sm">close</span></button>`;
+        container.appendChild(tag);
+        input.value = '';
+      }
+    }
+
+    function showSuccessFeedback() {
+      const toast = document.getElementById('successToast');
+      toast.classList.remove('translate-y-32', 'opacity-0', 'pointer-events-none');
+      setTimeout(() => {
+        toast.classList.add('translate-y-32', 'opacity-0', 'pointer-events-none');
+      }, 3500);
+    }
+  </script>
+</body>
+</html>

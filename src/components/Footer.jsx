@@ -1,105 +1,20 @@
-import React from 'react';
-import { Mail, Phone, MapPin, ArrowUpRight } from 'lucide-react';
+import React from "react";
 
 export default function Footer({ navigate }) {
-  const handleNav = (path) => {
-    navigate(path);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
   return (
-    <footer className="site-footer">
-      <div className="container">
-        <div className="footer-grid">
-          {/* Brand Column */}
-          <div className="footer-brand">
-            <img
-              src="/assets/branding/logo.png"
-              alt="MCRC Exports Logo"
-              style={{ height: '42px', width: 'auto', filter: 'brightness(0) invert(1)' }}
-            />
-            <p>
-              MCRC Exports is a premier Kolkata-based manufacturer and global exporter of
-              handcrafted, hand-painted genuine leather products. Grounded in traditional
-              Shantiniketan craft and built for international commercial excellence.
-            </p>
-          </div>
-
-          {/* Navigation Column */}
-          <div>
-            <h4 className="footer-heading">Company</h4>
-            <div className="footer-links">
-              <a href="/" onClick={(e) => { e.preventDefault(); handleNav('/'); }} className="footer-link">
-                Home
-              </a>
-              <a href="/about" onClick={(e) => { e.preventDefault(); handleNav('/about'); }} className="footer-link">
-                Our Story & Heritage
-              </a>
-              <a href="/products" onClick={(e) => { e.preventDefault(); handleNav('/products'); }} className="footer-link">
-                Product Collections
-              </a>
-              <a href="#contact-section" className="footer-link">
-                Contact & Sourcing
-              </a>
-            </div>
-          </div>
-
-          {/* Collections Column */}
-          <div>
-            <h4 className="footer-heading">Collections</h4>
-            <div className="footer-links">
-              <a href="/products/small-leather-goods" onClick={(e) => { e.preventDefault(); handleNav('/products/small-leather-goods'); }} className="footer-link">
-                Small Leather Articles
-              </a>
-              <a href="/products/pouches" onClick={(e) => { e.preventDefault(); handleNav('/products/pouches'); }} className="footer-link">
-                Pouches
-              </a>
-              <a href="/products/leather-bags" onClick={(e) => { e.preventDefault(); handleNav('/products/leather-bags'); }} className="footer-link">
-                Leather Bags
-              </a>
-              <a href="/products/coin-bags-decor" onClick={(e) => { e.preventDefault(); handleNav('/products/coin-bags-decor'); }} className="footer-link">
-                Decor / Coin Banks
-              </a>
-              <a href="/products/wallets" onClick={(e) => { e.preventDefault(); handleNav('/products/wallets'); }} className="footer-link">
-                Wallets
-              </a>
-              <a href="/products/canvas-bags" onClick={(e) => { e.preventDefault(); handleNav('/products/canvas-bags'); }} className="footer-link">
-                Canvas Bags
-              </a>
-            </div>
-          </div>
-
-          {/* Sourcing & Contact Column */}
-          <div>
-            <h4 className="footer-heading">B2B Sourcing</h4>
-            <div className="footer-links">
-              <a href="tel:+919830920676" className="footer-link" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                <Phone size={15} color="var(--color-gold)" />
-                <span>+91 9830920676</span>
-              </a>
-              <a href="mailto:mcrcpltd@gmail.com" className="footer-link" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                <Mail size={15} color="var(--color-gold)" />
-                <span>mcrcpltd@gmail.com</span>
-              </a>
-              <div style={{ display: 'flex', alignItems: 'flex-start', gap: '8px', color: 'var(--color-text-light-muted)', fontSize: '0.875rem', marginTop: '6px' }}>
-                <MapPin size={16} color="var(--color-gold)" style={{ flexShrink: 0, marginTop: '3px' }} />
-                <span>Kolkata, West Bengal, India</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="footer-bottom">
-          <p>© {new Date().getFullYear()} MCRC Exports. All rights reserved. Handcrafted in India for Global Markets.</p>
-          <div style={{ display: 'flex', gap: '20px' }}>
-            <span>Genuine Leather Goods</span>
-            <span>•</span>
-            <span>Shantiniketan Artisan Heritage</span>
-            <span>•</span>
-            <span>Global Export Standard</span>
-          </div>
-        </div>
-      </div>
-    </footer>
+    <>
+      <footer className="bg-surface-container border-t border-outline-variant/40">
+<div className="max-w-7xl mx-auto px-6 md:px-12 py-16">
+<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 mb-14"><div className="lg:col-span-2"><div className="flex items-center gap-3 mb-4"><div className="w-9 h-9 rounded-lg bg-primary flex items-center justify-center text-on-primary"><span className="material-symbols-outlined text-xl">eco</span></div><span className="text-headline-md font-headline-md font-bold text-primary tracking-tight">Notch</span></div><p className="text-body-sm font-body-sm text-on-surface-variant max-w-sm mb-6 leading-relaxed">High-spec sustainable molded fiber engineering. Connecting enterprise procurement directly with audited bamboo and sugarcane bagasse production lines worldwide.</p><div className="flex items-center gap-2 mb-6"><span className="px-2.5 py-1 rounded bg-surface-container-highest text-label-sm font-label-sm text-primary font-mono">BPI Certified</span><span className="px-2.5 py-1 rounded bg-surface-container-highest text-label-sm font-label-sm text-primary font-mono">FDA Compliant</span><span className="px-2.5 py-1 rounded bg-surface-container-highest text-label-sm font-label-sm text-primary font-mono">EN 13432</span></div><div className="flex items-center gap-3"><a aria-label="WhatsApp" className="w-9 h-9 rounded-lg bg-surface-container-lowest border border-outline-variant/40 flex items-center justify-center text-primary hover:bg-secondary hover:text-on-secondary transition-colors" href="https://wa.me/15550192834" rel="noopener" target="_blank"><span className="material-symbols-outlined text-lg">chat</span></a><a aria-label="Instagram" className="w-9 h-9 rounded-lg bg-surface-container-lowest border border-outline-variant/40 flex items-center justify-center text-primary hover:bg-secondary hover:text-on-secondary transition-colors" href="https://instagram.com" rel="noopener" target="_blank"><span className="material-symbols-outlined text-lg">photo_camera</span></a><a aria-label="Phone" className="w-9 h-9 rounded-lg bg-surface-container-lowest border border-outline-variant/40 flex items-center justify-center text-primary hover:bg-secondary hover:text-on-secondary transition-colors" href="tel:+15550192834"><span className="material-symbols-outlined text-lg">call</span></a><a aria-label="Email" className="w-9 h-9 rounded-lg bg-surface-container-lowest border border-outline-variant/40 flex items-center justify-center text-primary hover:bg-secondary hover:text-on-secondary transition-colors" href="mailto:sourcing@yourcompany.com"><span className="material-symbols-outlined text-lg">mail</span></a></div></div><div><h4 className="text-headline-sm font-headline-sm font-bold text-primary mb-4">Product Catalogue</h4><ul className="space-y-2.5"><li className=""><a className="text-on-surface-variant hover:text-primary transition-colors text-label-md font-label-md" href="#products">Round Plates</a></li><li className=""><a className="text-on-surface-variant hover:text-primary transition-colors text-label-md font-label-md" href="#products">Hinged Clamshells</a></li><li className=""><a className="text-on-surface-variant hover:text-primary transition-colors text-label-md font-label-md" href="#products">Bento Meal Plates</a></li><li className=""><a className="text-on-surface-variant hover:text-primary transition-colors text-label-md font-label-md" href="#products">Beverage Cups &amp; Lids</a></li><li className=""><a className="text-on-surface-variant hover:text-primary transition-colors text-label-md font-label-md" href="#products">Custom Molded Tooling</a></li></ul></div><div><h4 className="text-headline-sm font-headline-sm font-bold text-primary mb-4">Solutions &amp; Supply</h4><ul className="space-y-2.5"><li className=""><a className="text-on-surface-variant hover:text-primary transition-colors text-label-md font-label-md" href="#what-you-get">What You Get</a></li><li className=""><a className="text-on-surface-variant hover:text-primary transition-colors text-label-md font-label-md" href="/export" onClick={(e) => { e.preventDefault(); navigate("/export"); window.scrollTo(0,0); }}>Who We Supply</a></li><li className=""><a className="text-on-surface-variant hover:text-primary transition-colors text-label-md font-label-md" href="/export" onClick={(e) => { e.preventDefault(); navigate("/export"); window.scrollTo(0,0); }}>Global Export Network</a></li><li className=""><a className="text-on-surface-variant hover:text-primary transition-colors text-label-md font-label-md" href="#enquiry-section" onClick={() => { /* switchTab('supplier') */ }}>Distributor Portal</a></li><li className=""><a className="text-on-surface-variant hover:text-primary transition-colors text-label-md font-label-md" href="#enquiry-section" onClick={() => { /* switchTab('buyer') */ }}>Free Sample Kit</a></li></ul></div><div><h4 className="text-headline-sm font-headline-sm font-bold text-primary mb-4">Policies &amp; Legal</h4><ul className="space-y-2.5"><li className=""><a className="text-on-surface-variant hover:text-primary transition-colors text-label-md font-label-md" href="#">Shipping Policy</a></li><li className=""><a className="text-on-surface-variant hover:text-primary transition-colors text-label-md font-label-md" href="/export" onClick={(e) => { e.preventDefault(); navigate("/export"); window.scrollTo(0,0); }}>Export Compliance</a></li><li className=""><a className="text-on-surface-variant hover:text-primary transition-colors text-label-md font-label-md" href="#">Privacy Policy</a></li><li className=""><a className="text-on-surface-variant hover:text-primary transition-colors text-label-md font-label-md" href="#">Terms of Supply</a></li><li className=""><a className="text-on-surface-variant hover:text-primary transition-colors text-label-md font-label-md" href="#">PFAS-Free Verification</a></li></ul></div></div>
+{/*  Copyright Sub-row  */}
+<div className="pt-8 border-t border-outline-variant/30 flex flex-col md:flex-row justify-between items-center gap-4 text-body-sm font-body-sm text-on-surface-variant">
+<div className="">© 2025 Notch. All rights reserved. High-spec sustainable molded fiber engineering.</div>
+<div className="flex items-center gap-6">
+<span className="text-label-sm font-label-sm text-outline font-mono">100% Sugarcane Bagasse &amp; Bamboo Fiber</span>
+</div>
+</div>
+</div>
+</footer>
+    </>
   );
 }

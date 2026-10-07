@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 
-const LOCAL_STORAGE_KEY = 'mcrc_catalog_data_v6';
+const LOCAL_STORAGE_KEY = 'mcrc_catalog_data_v7';
 
 const cleanProductName = (name) => {
   if (!name) return name;
@@ -30,6 +30,19 @@ export function CatalogProvider({ children }) {
   const [loading, setLoading] = useState(true);
   const [activeProductModal, setActiveProductModal] = useState(null);
   const [notification, setNotification] = useState(null);
+
+  const [selectedProducts, setSelectedProducts] = useState([]);
+  
+  const toggleProductSelection = (product) => {
+    setSelectedProducts(prev => {
+      const exists = prev.find(p => p.id === product.id);
+      if (exists) {
+        return prev.filter(p => p.id !== product.id);
+      }
+      return [...prev, product];
+    });
+  };
+
 
   const showNotification = (message, type = 'success') => {
     setNotification({ message, type });
@@ -105,42 +118,70 @@ export function CatalogProvider({ children }) {
     showNotification(`Category "${cat?.name || catId}" deleted.`);
   };
 
-  const addProduct = (categoryId, product) => {
+  const addProduct = (categoryId, product, categoryNameStr) => {
     if (!catalog) return;
-    const newCategories = catalog.categories.map((cat) => {
-      if (cat.id === categoryId) {
-        const safeModel = (product.modelNumber || 'ITEM').trim().replace(/[^a-zA-Z0-9_-]/g, '_');
-        const newProd = {
-          ...product,
-          id: product.id || `${categoryId}-${safeModel.toLowerCase()}-${Date.now()}`,
-          categoryId,
-          categoryName: cat.name,
-          images: product.images && product.images.length > 0 ? product.images : [product.thumbnail]
-        };
-        return {
-          ...cat,
-          products: [newProd, ...cat.products]
-        };
-      }
-      return cat;
-    });
-    saveCatalog({ ...catalog, categories: newCategories });
-    showNotification(`Product "${product.modelNumber || product.name}" added successfully.`);
+    let categories = [...catalog.categories];
+    let cat = categories.find(c => c.id === categoryId);
+    
+    if (!cat) {
+      cat = { id: categoryId, name: categoryNameStr || categoryId, description: '', products: [] };
+      categories.push(cat);
+    }
+    
+    const safeModel = (product.modelNumber || product.modelCode || 'ITEM').trim().replace(/[^a-zA-Z0-9_-]/g, '_');
+    const finalImages = product.images && product.images.length > 0 ? product.images : (product.thumbnail ? [product.thumbnail] : []);
+    const newProd = {
+      ...product,
+      id: product.id || `${categoryId}-${safeModel.toLowerCase()}-${Date.now()}`,
+      categoryId,
+      categoryName: cat.name,
+      images: finalImages,
+      thumbnail: finalImages.length > 0 ? finalImages[0] : product.thumbnail
+    };
+    
+    categories = categories.map(c => 
+      c.id === categoryId ? { ...c, products: [newProd, ...(c.products || [])] } : c
+    );
+    
+    saveCatalog({ ...catalog, categories });
+    showNotification(`Product "${product.name}" added successfully.`);
   };
 
-  const updateProduct = (categoryId, product) => {
+  const updateProduct = (oldCategoryId, newCategoryId, product, categoryNameStr) => {
     if (!catalog) return;
-    const newCategories = catalog.categories.map((cat) => {
-      if (cat.id === categoryId) {
-        const updatedProducts = cat.products.map((p) =>
-          p.id === product.id ? { ...p, ...product } : p
-        );
-        return { ...cat, products: updatedProducts };
+    let categories = [...catalog.categories];
+    
+    // Create new category if it doesn't exist
+    if (!categories.find(c => c.id === newCategoryId)) {
+      categories.push({ id: newCategoryId, name: categoryNameStr || newCategoryId, description: '', products: [] });
+    }
+
+    // Remove from old category (and anywhere else just in case)
+    categories = categories.map(c => ({
+      ...c,
+      products: (c.products || []).filter(p => p.id !== product.id)
+    }));
+
+    // Add to new category
+    categories = categories.map(c => {
+      if (c.id === newCategoryId) {
+        const finalImages = product.images && product.images.length > 0 ? product.images : (product.thumbnail ? [product.thumbnail] : []);
+        return {
+          ...c,
+          products: [{ 
+            ...product, 
+            categoryId: newCategoryId, 
+            categoryName: c.name,
+            images: finalImages,
+            thumbnail: finalImages.length > 0 ? finalImages[0] : product.thumbnail
+          }, ...c.products]
+        };
       }
-      return cat;
+      return c;
     });
-    saveCatalog({ ...catalog, categories: newCategories });
-    showNotification(`Product "${product.modelNumber || product.name}" updated successfully.`);
+
+    saveCatalog({ ...catalog, categories });
+    showNotification(`Product "${product.name}" updated successfully.`);
   };
 
   const deleteProduct = (categoryId, productId) => {
@@ -224,7 +265,9 @@ export function CatalogProvider({ children }) {
         resetToDefaultCatalog,
         activeProductModal,
         openProductModal,
-        closeProductModal
+        closeProductModal,
+        selectedProducts,
+        toggleProductSelection
       }}
     >
       {children}

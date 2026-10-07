@@ -1,0 +1,856 @@
+<!DOCTYPE html><html class="scroll-smooth" lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Global Export &amp; International Quality Standards | Your Company</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Three.js CDN for interactive 3D Globe -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<!-- Tailwind Configuration verbatim -->
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "inverse-surface": "#2d312e",
+            "surface-container-highest": "#e0e3df",
+            "surface": "#f7faf5",
+            "error": "#ba1a1a",
+            "tertiary-container": "#423b2e",
+            "error-container": "#ffdad6",
+            "secondary": "#116c4a",
+            "on-error-container": "#93000a",
+            "on-secondary-container": "#1b724f",
+            "on-tertiary-container": "#afa594",
+            "surface-container": "#ecefea",
+            "surface-bright": "#f7faf5",
+            "secondary-fixed-dim": "#86d7ad",
+            "on-primary-fixed-variant": "#274e3d",
+            "on-secondary-fixed-variant": "#005236",
+            "on-surface-variant": "#414844",
+            "on-tertiary": "#ffffff",
+            "primary-fixed-dim": "#a5d0b9",
+            "outline": "#717973",
+            "surface-container-lowest": "#ffffff",
+            "surface-container-high": "#e6e9e4",
+            "on-primary": "#ffffff",
+            "on-error": "#ffffff",
+            "on-primary-container": "#86af99",
+            "primary": "#012d1d",
+            "secondary-fixed": "#a1f4c8",
+            "secondary-container": "#a1f4c8",
+            "surface-dim": "#d8dbd6",
+            "primary-fixed": "#c1ecd4",
+            "on-tertiary-fixed": "#201b0f",
+            "on-background": "#191c1a",
+            "outline-variant": "#c1c8c2",
+            "surface-container-low": "#f1f4f0",
+            "on-surface": "#191c1a",
+            "primary-container": "#1b4332",
+            "tertiary": "#2c2519",
+            "tertiary-fixed": "#ede1ce",
+            "on-primary-fixed": "#002114",
+            "on-secondary-fixed": "#002113",
+            "surface-tint": "#3f6653",
+            "surface-variant": "#e0e3df",
+            "on-secondary": "#ffffff",
+            "background": "#f7faf5",
+            "tertiary-fixed-dim": "#d0c5b3",
+            "inverse-primary": "#a5d0b9",
+            "on-tertiary-fixed-variant": "#4d4638",
+            "inverse-on-surface": "#eff2ed"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-xs": "0.25rem",
+            "space-md": "1rem",
+            "space-xl": "2.5rem",
+            "space-lg": "1.5rem",
+            "gutter-sm": "1rem",
+            "margin-lg": "4rem",
+            "space-sm": "0.5rem",
+            "gutter": "1.5rem",
+            "margin": "2.5rem",
+            "margin-sm": "1rem"
+          },
+          "fontFamily": {
+            "headline-md": ["Outfit"],
+            "headline-sm": ["Outfit"],
+            "display-lg-mobile": ["Outfit"],
+            "headline-lg": ["Outfit"],
+            "display-lg": ["Outfit"],
+            "headline-xl-mobile": ["Outfit"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "headline-xl": ["Outfit"],
+            "body-md": ["Plus Jakarta Sans"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+            "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "500" }],
+            "display-lg-mobile": ["36px", { "lineHeight": "44px", "fontWeight": "600" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "600" }],
+            "display-lg": ["56px", { "lineHeight": "64px", "fontWeight": "600" }],
+            "headline-xl-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "600" }],
+            "label-sm": ["10px", { "lineHeight": "14px", "fontWeight": "700" }],
+            "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "fontWeight": "600" }],
+            "headline-xl": ["40px", { "lineHeight": "48px", "fontWeight": "600" }],
+            "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+            "label-md": ["12px", { "lineHeight": "16px", "fontWeight": "600" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      height: 4px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #c1c8c2;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface antialiased selection:bg-secondary-container selection:text-primary min-h-screen flex flex-col font-body-md text-body-md">
+<!-- Top Utility Bar with Quick Contact & Direct Trade Desk -->
+<aside class="bg-primary text-primary-fixed border-b border-outline-variant/20 py-1.5 px-6 md:px-12 text-label-md font-label-md">
+<div class="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-3">
+<div class="flex items-center gap-6">
+<span class="flex items-center gap-1.5 text-primary-fixed-dim">
+<span class="material-symbols-outlined text-[16px]">public</span>
+          Direct Factory Export Hub: Mundra &amp; Nhava Sheva Ports
+        </span>
+<span class="hidden md:inline-flex items-center gap-1.5 text-surface-container-high">
+<span class="material-symbols-outlined text-[16px]">schedule</span>
+          IST 08:00 - 20:00 (GMT +5:30)
+        </span>
+</div>
+<div class="flex items-center gap-5 ml-auto text-primary-fixed">
+<a class="hover:text-surface-container-lowest transition-colors flex items-center gap-1" href="https://wa.me/919979587949" rel="noopener noreferrer" target="_blank">
+<span class="material-symbols-outlined text-[15px]">chat</span>
+          WhatsApp: +91-9979587949
+        </a>
+<a class="hidden sm:flex items-center gap-1 hover:text-surface-container-lowest transition-colors" href="mailto:export@yourcompany.com">
+<span class="material-symbols-outlined text-[15px]">mail</span>
+          export@yourcompany.com
+        </a>
+<a class="hover:text-surface-container-lowest transition-colors" href="https://instagram.com" rel="noopener noreferrer" target="_blank" title="Instagram">
+<span class="material-symbols-outlined text-[16px]">photo_camera</span>
+</a>
+</div>
+</div>
+</aside>
+<!-- TopNavBar (Shared Component JSON Blueprint) -->
+<header class="sticky top-0 w-full z-50 bg-surface/90 dark:bg-surface/90 backdrop-blur-md border-b border-outline-variant/30 dark:border-outline-variant/20 shadow-sm dark:shadow-none">
+<div class="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center h-20">
+<!-- Brand Logo / Anchor -->
+<a class="text-headline-sm font-headline-sm font-bold text-primary dark:text-primary-fixed tracking-tight flex items-center gap-2" href="#">
+<span class="w-8 h-8 rounded-lg bg-primary-container text-on-primary flex items-center justify-center font-headline-md">
+<span class="material-symbols-outlined text-[20px]">eco</span>
+</span>
+<span class="">Your Company</span>
+</a>
+<!-- Desktop Navigation Links (Solutions is semantically active for Global Export & Specs) -->
+<nav class="hidden md:flex items-center space-x-8 text-label-lg font-label-lg">
+<a class="text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed transition-colors font-medium" href="#">Home</a>
+<a class="text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed transition-colors font-medium" href="#">Products</a>
+<a class="text-primary dark:text-primary-fixed font-semibold border-b-2 border-primary dark:border-primary-fixed pb-1" href="#">Solutions</a>
+<a class="text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed transition-colors font-medium" href="#">About</a>
+<a class="text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed transition-colors font-medium" href="#">Contact</a>
+</nav>
+<!-- Trailing Action Cluster -->
+<div class="flex items-center space-x-3">
+<a class="hidden lg:inline-flex items-center px-4 py-2 border border-primary text-primary hover:bg-surface-container rounded-lg font-label-md text-label-md transition-all" href="#distributor-form">
+          Become a Distributor
+        </a>
+<a class="inline-flex items-center justify-center bg-primary-container hover:bg-primary text-on-primary px-5 py-2.5 rounded-lg font-label-lg text-label-lg active:scale-[0.99] transition-all shadow-sm" href="#distributor-form">
+<span class="">Request a Quote</span>
+<span class="material-symbols-outlined ml-1.5 text-[18px]">arrow_forward</span>
+</a>
+</div>
+</div>
+</header>
+<!-- Hero Section: Interactive 3D Globe & Supply Infrastructure Framing -->
+<main class="flex-grow">
+<section class="relative pt-8 pb-14 md:pt-10 md:pb-20 overflow-hidden border-b border-outline-variant/30 bg-gradient-to-b from-surface via-surface-container-low/40 to-surface">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-12">
+<!-- Top Anchor Header Tag -->
+<div class="text-center max-w-2xl mx-auto mb-8 md:mb-10">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary-container/40 border border-secondary text-primary font-label-sm text-label-sm uppercase tracking-wider mb-2">
+<span class="material-symbols-outlined text-[14px]">public</span>
+    DIRECT FACTORY EXPORT CORRIDORS • MUNDRA &amp; JNPT
+  </div>
+<p class="text-body-sm text-on-surface-variant font-medium">
+    Seamless container dispatch from India's West Coast to Tier-1 international seaports worldwide.
+  </p>
+</div>
+<!-- Prominent 3-Column Hero Layout: Left Cards (3) | Center 3D Globe | Right Cards (3) -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+<!-- LEFT COLUMN: 3 Stacked Logistics & Port Operations Cards -->
+<div class="lg:col-span-3.5 xl:col-span-3 space-y-4 order-2 lg:order-1">
+<!-- Card L1: Direct Deepwater Port Origins -->
+<div class="w-full bg-surface-container-lowest/90 backdrop-blur-md border border-outline-variant/40 rounded-xl p-6 shadow-sm hover:border-secondary transition-all">
+<div class="flex items-center gap-3 mb-2.5">
+<div class="w-9 h-9 rounded-lg bg-secondary/10 text-secondary flex items-center justify-center shrink-0 border border-secondary/20">
+<span class="material-symbols-outlined text-[20px]">anchor</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-[16px] leading-[22px] font-bold text-primary">Direct Deepwater Origins</h3>
+<p class="text-[12px] text-on-surface-variant font-medium">Mundra &amp; JNPT (Nhava Sheva)</p>
+</div>
+</div>
+<p class="text-[13px] leading-relaxed text-on-surface-variant mb-4">
+        West Coast India state-of-the-art port terminals with guaranteed vessel berthing and rapid 24-36h port gate-in turnaround.
+      </p>
+<div class="flex flex-wrap gap-2 pt-2 border-t border-outline-variant/30">
+<span class="px-2.5 py-1 bg-surface-container rounded text-[11px] font-mono text-on-surface border border-outline-variant/40">Mundra: INMUN1</span>
+<span class="px-2.5 py-1 bg-surface-container rounded text-[11px] font-mono text-on-surface border border-outline-variant/40">JNPT: INNSA1</span>
+</div>
+</div>
+<!-- Card L2: FCL & Palletized Export Modes -->
+<div class="w-full bg-surface-container-lowest/90 backdrop-blur-md border border-outline-variant/40 rounded-xl p-6 shadow-sm hover:border-secondary transition-all">
+<div class="flex items-center gap-3 mb-2.5">
+<div class="w-9 h-9 rounded-lg bg-secondary/10 text-secondary flex items-center justify-center shrink-0 border border-secondary/20">
+<span class="material-symbols-outlined text-[20px]">inventory_2</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-[16px] leading-[22px] font-bold text-primary">FCL &amp; Palletized Modes</h3>
+<p class="text-[12px] text-on-surface-variant font-medium">20ft GP &amp; 40ft High Cube</p>
+</div>
+</div>
+<p class="text-[13px] leading-relaxed text-on-surface-variant mb-4">
+        Engineered cube optimization, 5-ply export kraft (275 PSI), VCI desiccant moisture mitigation, and automated tension wrapping.
+      </p>
+<div class="flex items-center justify-between text-[11px] font-mono text-on-surface-variant pt-2 border-t border-outline-variant/30">
+<span class="">Capacity: Up to 380k pcs</span>
+<span class="text-secondary font-bold">ISPM-15 Certified</span>
+</div>
+</div>
+<!-- Card L3: International Lead Times & Incoterms -->
+<div class="w-full bg-surface-container-lowest/90 backdrop-blur-md border border-outline-variant/40 rounded-xl p-6 shadow-sm hover:border-secondary transition-all">
+<div class="flex items-center gap-3 mb-2.5">
+<div class="w-9 h-9 rounded-lg bg-secondary/10 text-secondary flex items-center justify-center shrink-0 border border-secondary/20">
+<span class="material-symbols-outlined text-[20px]">local_shipping</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-[16px] leading-[22px] font-bold text-primary">Lead Times &amp; Incoterms</h3>
+<p class="text-[12px] text-on-surface-variant font-medium">14–21 Day Production Dispatch</p>
+</div>
+</div>
+<p class="text-[13px] leading-relaxed text-on-surface-variant mb-4">
+        Flexible international trade contracts supporting FOB terminal, CIF destination ocean freight, or turnkey DDP door delivery.
+      </p>
+<div class="flex flex-wrap items-center gap-2 pt-2 border-t border-outline-variant/30">
+<span class="px-2.5 py-0.5 bg-primary/10 text-primary font-bold rounded text-[11px] font-mono">FOB</span>
+<span class="px-2.5 py-0.5 bg-primary/10 text-primary font-bold rounded text-[11px] font-mono">CIF</span>
+<span class="px-2.5 py-0.5 bg-primary/10 text-primary font-bold rounded text-[11px] font-mono">DDP</span>
+<span class="ml-auto text-[11px] font-mono text-secondary font-semibold">Door-to-Door</span>
+</div>
+</div>
+</div>
+<!-- CENTER COLUMN: Interactive 3D Globe with Shipping & Flight Corridors -->
+<div class="lg:col-span-5 xl:col-span-6 order-1 lg:order-2 flex flex-col items-center">
+<div class="relative w-full max-w-[540px] aspect-square rounded-2xl bg-gradient-to-b from-[#021f14] via-[#012d1d] to-[#041910] border border-secondary/30 shadow-xl overflow-hidden p-3 flex flex-col justify-between">
+<!-- Top HUD Header Strip inside Globe Container -->
+<div class="z-10 flex items-center justify-between px-3 py-2 bg-inverse-surface/70 backdrop-blur-md rounded-lg border border-outline-variant/20 text-surface">
+<div class="flex items-center gap-2">
+<span class="relative flex h-2.5 w-2.5">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary-fixed opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-secondary-fixed"></span>
+</span>
+<span class="text-label-sm font-label-sm tracking-wider uppercase text-secondary-fixed font-semibold">Interactive Trade Globe</span>
+</div>
+<span class="text-[11px] text-surface-container-high font-mono">Drag to Rotate • Auto Orbit</span>
+</div>
+<!-- Canvas for Three.js 3D Globe -->
+<div class="absolute inset-0 flex items-center justify-center cursor-grab active:cursor-grabbing" id="hero-globe-container">
+<canvas class="w-full h-full block" id="globe-canvas" width="1076" height="1076" style="width: 538px; height: 538px;"></canvas>
+</div>
+<!-- Bottom Interactive Route Summary / Hub Indicator -->
+<div class="z-10 bg-inverse-surface/85 backdrop-blur-md rounded-xl border border-outline-variant/30 p-3 text-surface">
+<div class="flex items-center justify-between mb-2">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary-fixed text-[18px]">explore</span>
+<span class="text-label-md font-semibold text-surface-container-lowest">Primary Hub: West Coast India</span>
+</div>
+<span class="text-[10px] font-mono font-semibold px-2 py-0.5 bg-secondary text-on-secondary rounded">GLOBAL PORTS</span>
+</div>
+<div class="grid grid-cols-3 sm:grid-cols-5 gap-1.5 text-center text-[10px] font-mono">
+<div class="p-1.5 bg-primary/60 rounded border border-secondary/20">
+<span class="text-secondary-fixed block font-bold">Rotterdam</span>
+<span class="text-surface-variant text-[9px]">18-22d</span>
+</div>
+<div class="p-1.5 bg-primary/60 rounded border border-secondary/20">
+<span class="text-secondary-fixed block font-bold">Los Angeles</span>
+<span class="text-surface-variant text-[9px]">26-30d</span>
+</div>
+<div class="p-1.5 bg-primary/60 rounded border border-secondary/20">
+<span class="text-secondary-fixed block font-bold">Hamburg</span>
+<span class="text-surface-variant text-[9px]">21-25d</span>
+</div>
+<div class="p-1.5 bg-primary/60 rounded border border-secondary/20">
+<span class="text-secondary-fixed block font-bold">Jebel Ali</span>
+<span class="text-surface-variant text-[9px]">3-5d</span>
+</div>
+<div class="p-1.5 bg-primary/60 rounded border border-secondary/20">
+<span class="text-secondary-fixed block font-bold">Sydney</span>
+<span class="text-surface-variant text-[9px]">22-26d</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- RIGHT COLUMN: 3 Stacked Quality, Purity & Certification Cards -->
+<div class="lg:col-span-3.5 xl:col-span-3 space-y-4 order-3">
+<!-- Card R1: 100% Certified Vegan & Plant Purity -->
+<div class="w-full bg-surface-container-lowest/90 backdrop-blur-md border border-outline-variant/40 rounded-xl p-6 shadow-sm hover:border-secondary transition-all">
+<div class="flex items-center gap-3 mb-2.5">
+<div class="w-9 h-9 rounded-lg bg-secondary/10 text-secondary flex items-center justify-center shrink-0 border border-secondary/20">
+<span class="material-symbols-outlined text-[20px]">cruelty_free</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-[16px] leading-[22px] font-bold text-primary">100% Certified Vegan</h3>
+<p class="text-[12px] text-on-surface-variant font-medium">Pure Agricultural Sugarcane</p>
+</div>
+</div>
+<p class="text-[13px] leading-relaxed text-on-surface-variant mb-4">
+        Zero animal bone ash or animal-byproduct sizing. Pure reclaimed fiber matrix with zero animal cruelty across our supply chain.
+      </p>
+<div class="flex items-center justify-between text-[11px] font-mono text-on-surface-variant pt-2 border-t border-outline-variant/30">
+<span class="">BeVeg &amp; V-Label Verified</span>
+<span class="text-secondary font-bold">100% Plant Pure</span>
+</div>
+</div>
+<!-- Card R2: PFAS-Free Barrier Technology -->
+<div class="w-full bg-surface-container-lowest/90 backdrop-blur-md border border-outline-variant/40 rounded-xl p-6 shadow-sm hover:border-secondary transition-all">
+<div class="flex items-center gap-3 mb-2.5">
+<div class="w-9 h-9 rounded-lg bg-secondary/10 text-secondary flex items-center justify-center shrink-0 border border-secondary/20">
+<span class="material-symbols-outlined text-[20px]">verified_user</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-[16px] leading-[22px] font-bold text-primary">PFAS-Free Barrier Tech</h3>
+<p class="text-[12px] text-on-surface-variant font-medium">Zero Forever Chemicals</p>
+</div>
+</div>
+<p class="text-[13px] leading-relaxed text-on-surface-variant mb-4">
+        Fluorine-free aqueous dispersion barrier meeting stringent US FDA 21 CFR 176.170 and EU chemical migration safety benchmarks.
+      </p>
+<div class="flex items-center justify-between text-[11px] font-mono text-on-surface-variant pt-2 border-t border-outline-variant/30">
+<span class="">Total Fluorine &lt; 50 ppm</span>
+<span class="text-secondary font-bold">Food Safe</span>
+</div>
+</div>
+<!-- Card R3: Global Regulatory Accreditations -->
+<div class="w-full bg-surface-container-lowest/90 backdrop-blur-md border border-outline-variant/40 rounded-xl p-6 shadow-sm hover:border-secondary transition-all">
+<div class="flex items-center gap-3 mb-2.5">
+<div class="w-9 h-9 rounded-lg bg-secondary/10 text-secondary flex items-center justify-center shrink-0 border border-secondary/20">
+<span class="material-symbols-outlined text-[20px]">verified</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-[16px] leading-[22px] font-bold text-primary">Global Accreditations</h3>
+<p class="text-[12px] text-on-surface-variant font-medium">BPI, EN 13432, ISO &amp; GMP</p>
+</div>
+</div>
+<p class="text-[13px] leading-relaxed text-on-surface-variant mb-4">
+        TÜV Austria OK Compost Industrial, ISO 9001/14001 certified manufacturing, and pharmaceutical-grade cleanroom UV packaging.
+      </p>
+<div class="flex flex-wrap gap-2 pt-2 border-t border-outline-variant/30">
+<span class="px-2.5 py-1 bg-surface-container rounded text-[11px] font-mono text-on-surface border border-outline-variant/40">BPI USA</span>
+<span class="px-2.5 py-1 bg-surface-container rounded text-[11px] font-mono text-on-surface border border-outline-variant/40">TÜV EU</span>
+<span class="px-2.5 py-1 bg-surface-container rounded text-[11px] font-mono text-on-surface border border-outline-variant/40">GMP Clean</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Three.js 3D Interactive Globe Script -->
+<script>
+  (function initHeroGlobe() {
+    const container = document.getElementById('hero-globe-container');
+    const canvas = document.getElementById('globe-canvas');
+    if (!container || !canvas || typeof THREE === 'undefined') return;
+
+    let width = container.clientWidth || 500;
+    let height = container.clientHeight || 500;
+
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 1000);
+    camera.position.z = 240;
+
+    const renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: true });
+    renderer.setSize(width, height);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+    const globeGroup = new THREE.Group();
+    scene.add(globeGroup);
+
+    // Initial tilt of globe
+    globeGroup.rotation.x = 0.35;
+    globeGroup.rotation.y = -1.2;
+
+    const GLOBE_RADIUS = 76;
+
+    // 1. Globe Base Sphere (Dark Emerald Core)
+    const sphereGeo = new THREE.SphereGeometry(GLOBE_RADIUS, 48, 48);
+    const sphereMat = new THREE.MeshBasicMaterial({
+      color: 0x012618,
+      transparent: true,
+      opacity: 0.88,
+      wireframe: false
+    });
+    const globeSphere = new THREE.Mesh(sphereGeo, sphereMat);
+    globeGroup.add(globeSphere);
+
+    // 2. Wireframe / Latitude & Longitude Grid
+    const wireGeo = new THREE.SphereGeometry(GLOBE_RADIUS + 0.3, 24, 24);
+    const wireMat = new THREE.MeshBasicMaterial({
+      color: 0x1b724f,
+      wireframe: true,
+      transparent: true,
+      opacity: 0.2
+    });
+    const wireSphere = new THREE.Mesh(wireGeo, wireMat);
+    globeGroup.add(wireSphere);
+
+    // Helper: Convert Lat/Lon to 3D Cartesian Coordinate on Sphere
+    function latLongToVector3(lat, lon, radius) {
+      const phi = (90 - lat) * (Math.PI / 180);
+      const theta = (lon + 180) * (Math.PI / 180);
+      const x = -(radius * Math.sin(phi) * Math.cos(theta));
+      const z = radius * Math.sin(phi) * Math.sin(theta);
+      const y = radius * Math.cos(phi);
+      return new THREE.Vector3(x, y, z);
+    }
+
+    // 3. Dot Grid Point Clouds (Continents simulation)
+    const pointsCount = 750;
+    const dotPositions = [];
+    for (let i = 0; i < pointsCount; i++) {
+      const u = Math.random();
+      const v = Math.random();
+      const theta = u * 2.0 * Math.PI;
+      const phi = Math.acos(2.0 * v - 1.0);
+      const r = GLOBE_RADIUS + 0.6;
+      const x = r * Math.sin(phi) * Math.cos(theta);
+      const y = r * Math.sin(phi) * Math.sin(theta);
+      const z = r * Math.cos(phi);
+      dotPositions.push(x, y, z);
+    }
+    const dotGeo = new THREE.BufferGeometry();
+    dotGeo.setAttribute('position', new THREE.Float32BufferAttribute(dotPositions, 3));
+    const dotMat = new THREE.PointsMaterial({
+      color: 0xa1f4c8,
+      size: 1.4,
+      transparent: true,
+      opacity: 0.45
+    });
+    const dotsMesh = new THREE.Points(dotGeo, dotMat);
+    globeGroup.add(dotsMesh);
+
+    // 4. Ports Coordinates (Origin: India, Targets: Global)
+    const ports = {
+      india: { lat: 22.8, lon: 69.7, name: 'Mundra & JNPT (India)', isOrigin: true },
+      rotterdam: { lat: 51.9, lon: 4.5, name: 'Rotterdam (NL)' },
+      losangeles: { lat: 33.7, lon: -118.2, name: 'Los Angeles (US)' },
+      hamburg: { lat: 53.5, lon: 9.9, name: 'Hamburg (DE)' },
+      jebelali: { lat: 25.0, lon: 55.0, name: 'Jebel Ali (UAE)' },
+      sydney: { lat: -33.8, lon: 151.2, name: 'Sydney (AU)' }
+    };
+
+    const originVec = latLongToVector3(ports.india.lat, ports.india.lon, GLOBE_RADIUS + 1.2);
+
+    // Add Glowing Pin for India Origin
+    const originGeo = new THREE.SphereGeometry(2.6, 16, 16);
+    const originMat = new THREE.MeshBasicMaterial({ color: 0xa1f4c8 });
+    const originPin = new THREE.Mesh(originGeo, originMat);
+    originPin.position.copy(originVec);
+    globeGroup.add(originPin);
+
+    // Outer Halo for Origin
+    const haloGeo = new THREE.RingGeometry(2.8, 4.4, 24);
+    const haloMat = new THREE.MeshBasicMaterial({ color: 0x86d7ad, side: THREE.DoubleSide, transparent: true, opacity: 0.8 });
+    const halo = new THREE.Mesh(haloGeo, haloMat);
+    halo.position.copy(originVec);
+    halo.lookAt(new THREE.Vector3(0, 0, 0));
+    globeGroup.add(halo);
+
+    // Create Destination Pins & Shipping Arcs
+    const destinations = [ports.rotterdam, ports.losangeles, ports.hamburg, ports.jebelali, ports.sydney];
+    const animatedPulses = [];
+
+    destinations.forEach(dest => {
+      const destVec = latLongToVector3(dest.lat, dest.lon, GLOBE_RADIUS + 1.2);
+
+      // Dest Pin
+      const pinGeo = new THREE.SphereGeometry(1.6, 12, 12);
+      const pinMat = new THREE.MeshBasicMaterial({ color: 0x86d7ad });
+      const pin = new THREE.Mesh(pinGeo, pinMat);
+      pin.position.copy(destVec);
+      globeGroup.add(pin);
+
+      // Great Circle Arc curve
+      const distance = originVec.distanceTo(destVec);
+      const midPoint = new THREE.Vector3().addVectors(originVec, destVec).multiplyScalar(0.5);
+      const altitude = Math.min(distance * 0.35, 36);
+      midPoint.setLength(GLOBE_RADIUS + altitude);
+
+      const curve = new THREE.QuadraticBezierCurve3(originVec, midPoint, destVec);
+      const curvePoints = curve.getPoints(45);
+      const arcGeo = new THREE.BufferGeometry().setFromPoints(curvePoints);
+      const arcMat = new THREE.LineBasicMaterial({
+        color: 0x2cd98c,
+        transparent: true,
+        opacity: 0.65,
+        linewidth: 1.5
+      });
+      const arcLine = new THREE.Line(arcGeo, arcMat);
+      globeGroup.add(arcLine);
+
+      // Traveling pulse particle along the arc
+      const pulseGeo = new THREE.SphereGeometry(1.2, 8, 8);
+      const pulseMat = new THREE.MeshBasicMaterial({ color: 0xffffff });
+      const pulse = new THREE.Mesh(pulseGeo, pulseMat);
+      globeGroup.add(pulse);
+      animatedPulses.push({ mesh: pulse, curve: curve, progress: Math.random() });
+    });
+
+    // Atmospheric Glow Outer Ring
+    const atmosphereGeo = new THREE.RingGeometry(GLOBE_RADIUS + 2, GLOBE_RADIUS + 18, 64);
+    const atmosphereMat = new THREE.MeshBasicMaterial({
+      color: 0x116c4a,
+      side: THREE.DoubleSide,
+      transparent: true,
+      opacity: 0.12
+    });
+    const atmosphere = new THREE.Mesh(atmosphereGeo, atmosphereMat);
+    atmosphere.position.z = -10;
+    scene.add(atmosphere);
+
+    // Interactive Drag Controls
+    let isDragging = false;
+    let prevMousePos = { x: 0, y: 0 };
+    let rotationVelocity = { x: 0, y: 0.0028 }; // Default auto-orbit speed
+
+    function onPointerDown(e) {
+      isDragging = true;
+      const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+      const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+      prevMousePos = { x: clientX, y: clientY };
+    }
+
+    function onPointerMove(e) {
+      if (!isDragging) return;
+      const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+      const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+      const deltaX = clientX - prevMousePos.x;
+      const deltaY = clientY - prevMousePos.y;
+
+      globeGroup.rotation.y += deltaX * 0.007;
+      globeGroup.rotation.x += deltaY * 0.007;
+
+      // Bound X tilt
+      globeGroup.rotation.x = Math.max(-0.9, Math.min(0.9, globeGroup.rotation.x));
+
+      rotationVelocity.y = deltaX * 0.001;
+      prevMousePos = { x: clientX, y: clientY };
+    }
+
+    function onPointerUp() {
+      isDragging = false;
+    }
+
+    canvas.addEventListener('mousedown', onPointerDown);
+    window.addEventListener('mousemove', onPointerMove);
+    window.addEventListener('mouseup', onPointerUp);
+
+    canvas.addEventListener('touchstart', onPointerDown, { passive: true });
+    window.addEventListener('touchmove', onPointerMove, { passive: true });
+    window.addEventListener('touchend', onPointerUp);
+
+    // Responsive Canvas Resize
+    function handleResize() {
+      if (!container) return;
+      const newWidth = container.clientWidth;
+      const newHeight = container.clientHeight;
+      if (newWidth === 0 || newHeight === 0) return;
+      camera.aspect = newWidth / newHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(newWidth, newHeight);
+    }
+    window.addEventListener('resize', handleResize);
+
+    // Animation Loop
+    let haloScale = 1;
+    let haloDir = 0.008;
+
+    function animate() {
+      requestAnimationFrame(animate);
+
+      // Auto rotation when not actively dragging
+      if (!isDragging) {
+        globeGroup.rotation.y += 0.0024;
+      }
+
+      // Origin pulse animation
+      haloScale += haloDir;
+      if (haloScale > 1.3 || haloScale < 0.95) haloDir = -haloDir;
+      halo.scale.set(haloScale, haloScale, 1);
+
+      // Move transit cargo particles along shipping routes
+      animatedPulses.forEach(item => {
+        item.progress += 0.006;
+        if (item.progress > 1) item.progress = 0;
+        const pos = item.curve.getPoint(item.progress);
+        item.mesh.position.copy(pos);
+      });
+
+      renderer.render(scene, camera);
+    }
+    animate();
+  })();
+</script>
+<!-- Section 2: International Quality & Safety Standards (Certifications Grid) -->
+
+<!-- Section 3: Export Shipping & Transit Specifications -->
+
+<!-- Section 4: Quality Assurance & Testing Dossier -->
+
+<!-- Section 5: Become a Distributor / Global Procurement RFQ Intake Form -->
+<section class="py-16 md:py-24 bg-surface-container-low border-t border-outline-variant/30" id="distributor-form">
+<div class="max-w-7xl mx-auto px-6 md:px-12">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+<!-- Left Instructions & Distributor Program Overview -->
+<div class="lg:col-span-5 space-y-6">
+<span class="px-3 py-1 bg-surface-container rounded-full border border-outline-variant text-label-sm font-label-sm uppercase tracking-wider text-on-surface-variant inline-block">
+              GLOBAL PARTNERSHIP NETWORK
+            </span>
+<h2 class="text-headline-xl font-headline-xl text-primary tracking-tight">
+              Become a Regional Distributor or Request an Enterprise RFQ
+            </h2>
+<p class="text-body-md font-body-md text-on-surface-variant leading-relaxed">
+              We collaborate with established commercial packaging importers, supermarket suppliers, and institutional food-service distributors across the Americas, Europe, Middle East, and Asia-Pacific.
+            </p>
+<div class="space-y-4 pt-2">
+<div class="flex items-start gap-3">
+<div class="w-8 h-8 rounded-lg bg-surface-container-lowest text-secondary flex items-center justify-center shrink-0 border border-outline-variant/50 mt-0.5">
+<span class="material-symbols-outlined text-[18px]">lock</span>
+</div>
+<div>
+<h4 class="font-headline-sm text-headline-sm text-primary">Territory Exclusivity Programs</h4>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Protected regional distributor contracts available subject to annual minimum container volumes.</p>
+</div>
+</div>
+<div class="flex items-start gap-3">
+<div class="w-8 h-8 rounded-lg bg-surface-container-lowest text-secondary flex items-center justify-center shrink-0 border border-outline-variant/50 mt-0.5">
+<span class="material-symbols-outlined text-[18px]">branding_watermark</span>
+</div>
+<div>
+<h4 class="font-headline-sm text-headline-sm text-primary">OEM / ODM Custom Tooling</h4>
+<p class="text-body-sm font-body-sm text-on-surface-variant">In-house CNC aluminum mold development, custom debossing logos, and localized master packaging.</p>
+</div>
+</div>
+<div class="flex items-start gap-3">
+<div class="w-8 h-8 rounded-lg bg-surface-container-lowest text-secondary flex items-center justify-center shrink-0 border border-outline-variant/50 mt-0.5">
+<span class="material-symbols-outlined text-[18px]">handshake</span>
+</div>
+<div>
+<h4 class="font-headline-sm text-headline-sm text-primary">NDA &amp; IP Protection</h4>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Bilateral non-disclosure agreements executed prior to exchanging proprietary CAD drawings.</p>
+</div>
+</div>
+</div>
+<!-- Instant Contact / Direct Hotline -->
+<div class="p-5 bg-surface-container-lowest rounded-xl border border-outline-variant">
+<p class="text-label-md font-label-md text-on-surface-variant font-semibold mb-1">Direct Head of Export Desk:</p>
+<div class="flex flex-wrap items-center gap-4 text-body-sm">
+<a class="font-mono text-primary font-bold hover:text-secondary flex items-center gap-1" href="tel:+919979587949">
+<span class="material-symbols-outlined text-[16px]">call</span> +91-9979587949
+                </a>
+<a class="text-secondary font-bold hover:underline flex items-center gap-1" href="https://wa.me/919979587949">
+<span class="material-symbols-outlined text-[16px]">chat</span> WhatsApp Available
+                </a>
+</div>
+</div>
+</div>
+<!-- Right: Comprehensive Procurement Intake Form -->
+<div class="lg:col-span-7">
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-6 sm:p-8 shadow-sm">
+<div class="border-b border-outline-variant/40 pb-4 mb-6">
+<h3 class="font-headline-md text-headline-md text-primary">Export Procurement Inquiry (FCL / LCL)</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Our export logistics desk replies within 12 business hours with FOB/CIF rate calculations.</p>
+</div>
+<form class="space-y-4" onsubmit="event.preventDefault(); alert('Inquiry received. The export desk will dispatch quotation and certification package to your business email within 12 hours.');">
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<div>
+<label class="block text-label-md font-label-md text-on-surface mb-1">Full Name *</label>
+<input class="w-full bg-surface-container-lowest border border-outline-variant rounded-lg px-3.5 py-2.5 text-body-sm text-on-surface focus:border-secondary focus:ring-1 focus:ring-secondary outline-none transition-all" placeholder="e.g. John Henderson" required="" type="text">
+</div>
+<div>
+<label class="block text-label-md font-label-md text-on-surface mb-1">Corporate Email *</label>
+<input class="w-full bg-surface-container-lowest border border-outline-variant rounded-lg px-3.5 py-2.5 text-body-sm text-on-surface focus:border-secondary focus:ring-1 focus:ring-secondary outline-none transition-all" placeholder="john@distributorcorp.com" required="" type="email">
+</div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<div>
+<label class="block text-label-md font-label-md text-on-surface mb-1">Company / Entity Name *</label>
+<input class="w-full bg-surface-container-lowest border border-outline-variant rounded-lg px-3.5 py-2.5 text-body-sm text-on-surface focus:border-secondary focus:ring-1 focus:ring-secondary outline-none transition-all" placeholder="Packaging Logistics Ltd" required="" type="text">
+</div>
+<div>
+<label class="block text-label-md font-label-md text-on-surface mb-1">Phone / WhatsApp Number *</label>
+<input class="w-full bg-surface-container-lowest border border-outline-variant rounded-lg px-3.5 py-2.5 text-body-sm text-on-surface focus:border-secondary focus:ring-1 focus:ring-secondary outline-none transition-all" placeholder="+1 (555) 019-2834" required="" type="tel">
+</div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<div>
+<label class="block text-label-md font-label-md text-on-surface mb-1">Country of Import *</label>
+<input class="w-full bg-surface-container-lowest border border-outline-variant rounded-lg px-3.5 py-2.5 text-body-sm text-on-surface focus:border-secondary focus:ring-1 focus:ring-secondary outline-none transition-all" placeholder="United States / Germany / UAE" required="" type="text">
+</div>
+<div>
+<label class="block text-label-md font-label-md text-on-surface mb-1">Target Port of Destination *</label>
+<input class="w-full bg-surface-container-lowest border border-outline-variant rounded-lg px-3.5 py-2.5 text-body-sm text-on-surface focus:border-secondary focus:ring-1 focus:ring-secondary outline-none transition-all" placeholder="e.g. Port of Los Angeles / Rotterdam" required="" type="text">
+</div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<div>
+<label class="block text-label-md font-label-md text-on-surface mb-1">Estimated Container Volume *</label>
+<select class="w-full bg-surface-container-lowest border border-outline-variant rounded-lg px-3.5 py-2.5 text-body-sm text-on-surface focus:border-secondary focus:ring-1 focus:ring-secondary outline-none transition-all">
+<option>1 x 20ft Container (Trial / Pilot)</option>
+<option selected="">1 x 40ft High Cube (HC)</option>
+<option>2 - 5 x 40ft HC per Month</option>
+<option>6+ Containers / Month (Enterprise Contract)</option>
+<option>LCL Consolidation (&gt; 5 Pallets)</option>
+</select>
+</div>
+<div>
+<label class="block text-label-md font-label-md text-on-surface mb-1">Preferred Incoterm</label>
+<select class="w-full bg-surface-container-lowest border border-outline-variant rounded-lg px-3.5 py-2.5 text-body-sm text-on-surface focus:border-secondary focus:ring-1 focus:ring-secondary outline-none transition-all">
+<option selected="">FOB (Mundra / Nhava Sheva)</option>
+<option>CIF (Delivered to Destination Port)</option>
+<option>CFR (Cost &amp; Freight)</option>
+<option>DDP (Delivered Duty Paid)</option>
+</select>
+</div>
+</div>
+<div>
+<label class="block text-label-md font-label-md text-on-surface mb-1">Target SKUs &amp; Custom Requirements</label>
+<textarea class="w-full bg-surface-container-lowest border border-outline-variant rounded-lg px-3.5 py-2.5 text-body-sm text-on-surface focus:border-secondary focus:ring-1 focus:ring-secondary outline-none transition-all" placeholder="Specify items (e.g. 9x6 Clamshell boxes, 3-compartment plates, 12oz bowls, custom embossed brand logos, or PFAS-free certification requirements)..." rows="3"></textarea>
+</div>
+<div class="flex items-start gap-2 pt-1">
+<input class="mt-1 w-4 h-4 rounded border-outline-variant text-primary focus:ring-secondary" id="nda" type="checkbox">
+<label class="text-body-sm font-body-sm text-on-surface-variant" for="nda">
+                    Please send bilateral Non-Disclosure Agreement (NDA) for custom tooling/OEM inquiry.
+                  </label>
+</div>
+<div class="pt-3">
+<button class="w-full bg-primary hover:bg-primary-container text-on-primary font-label-lg text-label-lg py-3 rounded-lg flex items-center justify-center gap-2 shadow-sm transition-all active:scale-[0.99]" type="submit">
+<span class="">Submit Container RFQ &amp; Request Sample Kit</span>
+<span class="material-symbols-outlined text-[18px]">send</span>
+</button>
+</div>
+<p class="text-[11px] text-center text-on-surface-variant pt-2">
+                  Privacy guaranteed. Your commercial details are protected under ISO/IEC data governance standards.
+                </p>
+</form>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer (Shared Component JSON Blueprint) -->
+<footer class="bg-surface-container dark:bg-surface-container-high border-t border-outline-variant/40 dark:border-outline-variant/20">
+<div class="max-w-7xl mx-auto px-6 md:px-12 py-16">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-outline-variant/40">
+<!-- Brand & Description (4 Cols) -->
+<div class="lg:col-span-4 space-y-4">
+<a class="text-headline-md font-headline-md font-bold text-primary dark:text-primary-fixed tracking-tight flex items-center gap-2" href="#">
+<span class="w-8 h-8 rounded-lg bg-primary-container text-on-primary flex items-center justify-center font-headline-md">
+<span class="material-symbols-outlined text-[20px]">eco</span>
+</span>
+<span class="">Your Company</span>
+</a>
+<p class="text-body-sm font-body-sm text-on-surface-variant max-w-sm">
+            High-spec sustainable molded sugarcane bagasse and bamboo fiber packaging engineering. Direct factory dispatch from Gujarat, India to global enterprise supply chains.
+          </p>
+<div class="pt-2 flex items-center gap-4 text-primary">
+<a class="w-9 h-9 rounded-full bg-surface-container-lowest border border-outline-variant flex items-center justify-center hover:bg-primary hover:text-on-primary transition-colors" href="https://wa.me/919979587949" rel="noopener noreferrer" target="_blank" title="WhatsApp Direct">
+<span class="material-symbols-outlined text-[18px]">chat</span>
+</a>
+<a class="w-9 h-9 rounded-full bg-surface-container-lowest border border-outline-variant flex items-center justify-center hover:bg-primary hover:text-on-primary transition-colors" href="https://instagram.com" rel="noopener noreferrer" target="_blank" title="Instagram">
+<span class="material-symbols-outlined text-[18px]">photo_camera</span>
+</a>
+<a class="w-9 h-9 rounded-full bg-surface-container-lowest border border-outline-variant flex items-center justify-center hover:bg-primary hover:text-on-primary transition-colors" href="tel:+919979587949" title="Direct Phone">
+<span class="material-symbols-outlined text-[18px]">phone</span>
+</a>
+<a class="w-9 h-9 rounded-full bg-surface-container-lowest border border-outline-variant flex items-center justify-center hover:bg-primary hover:text-on-primary transition-colors" href="mailto:export@yourcompany.com" title="Email Inquiries">
+<span class="material-symbols-outlined text-[18px]">mail</span>
+</a>
+</div>
+</div>
+<!-- Links Cluster 1: Catalog & Specs (3 Cols) -->
+<div class="lg:col-span-3 space-y-3">
+<h4 class="font-headline-sm text-headline-sm text-primary dark:text-primary-fixed">Engineering &amp; Specs</h4>
+<ul class="space-y-2 text-label-md font-label-md">
+<li class=""><a class="text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed transition-colors hover:underline" href="#">Product Catalogue</a></li>
+<li class=""><a class="text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed transition-colors hover:underline" href="#">Material Specifications</a></li>
+<li class=""><a class="text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed transition-colors hover:underline" href="#">Lifecycle Analysis</a></li>
+<li class=""><a class="text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed transition-colors hover:underline" href="#">Compliance &amp; Certifications</a></li>
+</ul>
+</div>
+<!-- Links Cluster 2: Logistics & Commercial (3 Cols) -->
+<div class="lg:col-span-3 space-y-3">
+<h4 class="font-headline-sm text-headline-sm text-primary dark:text-primary-fixed">Global Supply Operations</h4>
+<ul class="space-y-2 text-label-md font-label-md">
+<li class=""><a class="text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed transition-colors hover:underline" href="#">OEM / ODM Solutions</a></li>
+<li class=""><a class="text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed transition-colors hover:underline" href="#">Supply Chain Logistics</a></li>
+<li class=""><a class="text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed transition-colors hover:underline" href="#">Shipping &amp; Transit Policy</a></li>
+<li class=""><a class="text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed transition-colors hover:underline" href="#">Export Compliance</a></li>
+</ul>
+</div>
+<!-- Contact Direct Column (2 Cols) -->
+<div class="lg:col-span-2 space-y-3">
+<h4 class="font-headline-sm text-headline-sm text-primary dark:text-primary-fixed">Factory Export Desk</h4>
+<div class="text-body-sm font-body-sm text-on-surface-variant space-y-2">
+<p class="">Export Division, Special Economic Zone, Gujarat, India.</p>
+<p class="font-semibold text-primary">Tel: +91-9979587949</p>
+<p class="font-mono text-[12px]">export@yourcompany.com</p>
+</div>
+</div>
+</div>
+<!-- Bottom Bar: Exact Copyright & Policies -->
+<div class="pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-body-sm font-body-sm text-on-surface-variant">
+<p class="">© 2025 Your Company. All rights reserved. High-spec sustainable molded fiber engineering.</p>
+<div class="flex items-center space-x-6 text-label-md font-label-md">
+<a class="text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed transition-colors hover:underline" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed transition-colors hover:underline" href="#">Terms of Supply</a>
+</div>
+</div>
+</div>
+</footer>
+
+
+</body></html>

@@ -1,175 +1,62 @@
-import React, { useState, useEffect } from 'react';
-import { Menu, X, ArrowRight } from 'lucide-react';
+import React, { useState } from "react";
+import { Menu, X } from "lucide-react";
 
 export default function Header({ currentPath, navigate }) {
-  const [scrolled, setScrolled] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 30) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  const isHome = currentPath === '/' || currentPath === '';
-  const isTransparent = isHome && !scrolled;
-
-  const handleNavClick = (path) => {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const handleNavClick = (e, path) => {
+    e.preventDefault();
     navigate(path);
-    setMobileMenuOpen(false);
+    setIsMobileMenuOpen(false);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
     <>
-      <header
-        className={`site-header ${isTransparent ? 'transparent' : 'scrolled'}`}
-        id="main-header"
-      >
-        <div className="container header-container">
-          <a
-            href="/"
-            onClick={(e) => {
-              e.preventDefault();
-              handleNavClick('/');
-            }}
-            className="logo-wrapper"
-            aria-label="MCRC Exports Home"
-          >
-            <img
-              src="/assets/branding/logo.png"
-              alt="MCRC Exports Logo"
-              className="site-logo"
-            />
-          </a>
+      <div className="bg-primary text-on-primary border-b border-primary-container/80 text-label-sm font-label-sm py-2 px-6 md:px-12 relative z-50"><div className="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-3"><div className="flex items-center gap-4"><span className="flex items-center gap-1 text-primary-fixed"><span className="material-symbols-outlined text-sm">public</span> Global Export &amp; Custom Manufacturing</span><span className="hidden md:inline text-outline-variant">|</span><span className="hidden md:inline text-surface-container-highest">Direct Ports: Mundra &amp; JNPT (India)</span></div><div className="flex items-center gap-4"><a className="flex items-center gap-1 text-surface-container-highest hover:text-secondary-fixed transition-colors" href="https://wa.me/15550192834" rel="noopener" target="_blank"><span className="material-symbols-outlined text-base">chat</span><span className="hidden sm:inline">WhatsApp</span></a><a className="flex items-center gap-1 text-surface-container-highest hover:text-secondary-fixed transition-colors" href="https://instagram.com" rel="noopener" target="_blank"><span className="material-symbols-outlined text-base">photo_camera</span><span className="hidden sm:inline">Instagram</span></a><a className="flex items-center gap-1 text-surface-container-highest hover:text-secondary-fixed transition-colors" href="tel:+15550192834"><span className="material-symbols-outlined text-base">call</span><span className="hidden sm:inline">+1 (555) 019-2834</span></a><a className="flex items-center gap-1 text-surface-container-highest hover:text-secondary-fixed transition-colors" href="mailto:sourcing@yourcompany.com"><span className="material-symbols-outlined text-base">mail</span><span className="hidden sm:inline">Email Us</span></a></div></div></div><header className="sticky top-0 w-full z-50 bg-surface/90 backdrop-blur-md border-b border-outline-variant/30 shadow-sm transition-all duration-200">
+<div className="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center h-20">
+{/*  Brand Logo  */}
+<a className="flex items-center gap-3 group" href="/" onClick={(e) => handleNavClick(e, "/")}>
+<div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center text-on-primary">
+<span className="material-symbols-outlined text-2xl" data-icon="eco">eco</span>
+</div>
+<div className="flex flex-col">
+<span className="text-headline-sm font-headline-sm font-bold text-primary tracking-tight">Notch</span>
+<span className="text-label-sm font-label-sm tracking-wider text-outline uppercase">B2B Fiber Sourcing</span>
+</div>
+</a>
+{/*  Desktop Nav Links  */}
+<nav className="hidden lg:flex items-center gap-8">
+<a className="text-primary font-semibold border-b-2 border-primary pb-1 font-label-lg text-label-lg" href="/products" onClick={(e) => handleNavClick(e, "/products")}>Products</a>
+<a className="text-on-surface-variant hover:text-primary transition-colors font-medium font-label-lg text-label-lg" href="#what-you-get">What You Get</a>
+<a className="text-on-surface-variant hover:text-primary transition-colors font-medium font-label-lg text-label-lg" href="/export" onClick={(e) => handleNavClick(e, "/export")}>Export</a>
+<a className="text-on-surface-variant hover:text-primary transition-colors font-medium font-label-lg text-label-lg" href="#process">Process</a>
+<a className="text-on-surface-variant hover:text-primary transition-colors font-medium font-label-lg text-label-lg" href="#enquiry-section" onClick={() => { /* switchTab('supplier') */ }}>Distributors</a>
+</nav>
 
-          {/* Desktop Nav */}
-          <nav className="nav-links" aria-label="Main Navigation">
-            <a
-              href="/"
-              onClick={(e) => {
-                e.preventDefault();
-                handleNavClick('/');
-              }}
-              className={`nav-link ${currentPath === '/' ? 'active' : ''}`}
-            >
-              Home
-            </a>
-            <a
-              href="/about"
-              onClick={(e) => {
-                e.preventDefault();
-                handleNavClick('/about');
-              }}
-              className={`nav-link ${currentPath === '/about' ? 'active' : ''}`}
-            >
-              About
-            </a>
-            <a
-              href="/products"
-              onClick={(e) => {
-                e.preventDefault();
-                handleNavClick('/products');
-              }}
-              className={`nav-link ${currentPath.startsWith('/products') ? 'active' : ''}`}
-            >
-              Products
-            </a>
-          </nav>
+<button className="lg:hidden ml-auto p-2 text-on-surface-variant hover:text-primary" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+  {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+</button>
+{/*  Trailing Action Buttons  */}
 
-          <button
-            type="button"
-            className="mobile-nav-toggle"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            aria-label={mobileMenuOpen ? 'Close Navigation Menu' : 'Open Navigation Menu'}
-            aria-expanded={mobileMenuOpen}
-          >
-            {mobileMenuOpen ? <X size={26} /> : <Menu size={26} />}
-          </button>
-        </div>
-      </header>
+<div className="flex items-center gap-3">
+<a className="hidden sm:inline-flex items-center justify-center px-4 py-2.5 rounded-lg border border-primary text-primary font-label-lg text-label-lg hover:bg-surface-container transition-all active:scale-[0.99]" href="#enquiry-section" onClick={() => { /* switchTab('supplier') */ }}>Become a Distributor</a>
+<a className="inline-flex items-center justify-center px-5 py-2.5 rounded-lg bg-primary-container text-on-primary hover:bg-primary transition-all font-label-lg text-label-lg shadow-sm hover:shadow active:scale-[0.99] gap-2" href="#enquiry-section" onClick={() => { /* switchTab('buyer') */ }}>
+<span className="">Make an Enquiry</span>
+<span className="material-symbols-outlined text-lg" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+</div>
 
-      {/* Mobile Drawer */}
-      <div
-        className={`mobile-nav-drawer ${mobileMenuOpen ? 'open' : ''}`}
-        aria-hidden={!mobileMenuOpen}
-      >
-        <div className="mobile-nav-header">
-          <img
-            src="/assets/branding/logo.png"
-            alt="MCRC Exports Logo"
-            style={{ height: '40px', width: 'auto', filter: 'brightness(0) invert(1)' }}
-          />
-          <button
-            type="button"
-            onClick={() => setMobileMenuOpen(false)}
-            style={{ color: '#FFFFFF', padding: '8px' }}
-            aria-label="Close menu"
-          >
-            <X size={28} />
-          </button>
-        </div>
+{/* Mobile Menu */}
+{isMobileMenuOpen && (
+  <nav className="lg:hidden absolute top-full left-0 w-full bg-surface border-b border-outline-variant/30 flex flex-col p-4 shadow-lg gap-4 z-40">
+    <a className="text-on-surface-variant font-medium font-label-lg text-label-lg py-2" href="/products" onClick={(e) => handleNavClick(e, "/products")}>Products</a>
+    <a className="text-on-surface-variant font-medium font-label-lg text-label-lg py-2" href="/export" onClick={(e) => handleNavClick(e, "/export")}>Export</a>
+    <a className="text-on-surface-variant font-medium font-label-lg text-label-lg py-2" href="#enquiry-section" onClick={() => setIsMobileMenuOpen(false)}>Distributors</a>
+  </nav>
+)}
+</header>
 
-        <nav className="mobile-nav-links">
-          <a
-            href="/"
-            onClick={(e) => {
-              e.preventDefault();
-              handleNavClick('/');
-            }}
-            className={`mobile-nav-link ${currentPath === '/' ? 'active' : ''}`}
-          >
-            <span>Home</span>
-            <ArrowRight size={20} />
-          </a>
-          <a
-            href="/about"
-            onClick={(e) => {
-              e.preventDefault();
-              handleNavClick('/about');
-            }}
-            className={`mobile-nav-link ${currentPath === '/about' ? 'active' : ''}`}
-          >
-            <span>About</span>
-            <ArrowRight size={20} />
-          </a>
-          <a
-            href="/products"
-            onClick={(e) => {
-              e.preventDefault();
-              handleNavClick('/products');
-            }}
-            className={`mobile-nav-link ${currentPath.startsWith('/products') ? 'active' : ''}`}
-          >
-            <span>Products</span>
-            <ArrowRight size={20} />
-          </a>
-        </nav>
-
-        <div className="mobile-nav-footer">
-          <span className="eyebrow" style={{ color: 'var(--color-gold-light)' }}>
-            Direct B2B Sourcing Hotline
-          </span>
-          <a
-            href="tel:+919830920676"
-            style={{ color: '#FFFFFF', fontSize: '1.25rem', fontFamily: 'var(--font-serif)', display: 'block', marginBottom: '8px' }}
-          >
-            +91 9830920676
-          </a>
-          <a
-            href="mailto:mcrcpltd@gmail.com"
-            style={{ color: 'var(--color-text-light-muted)', fontSize: '0.9rem' }}
-          >
-            mcrcpltd@gmail.com
-          </a>
-        </div>
-      </div>
     </>
   );
 }

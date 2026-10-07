@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+
+<html class="h-full bg-background text-on-surface" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Pulp &amp; Grain B2B - Catalog Overview</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "error": "#ba1a1a",
+            "on-surface-variant": "#414844",
+            "secondary": "#116c4a",
+            "background": "#f7faf5",
+            "on-secondary-fixed": "#002113",
+            "surface-tint": "#3f6653",
+            "on-secondary": "#ffffff",
+            "surface": "#f7faf5",
+            "secondary-container": "#a1f4c8",
+            "on-primary": "#ffffff",
+            "on-primary-container": "#86af99",
+            "outline-variant": "#c1c8c2",
+            "on-tertiary-fixed": "#201b0f",
+            "primary-container": "#1b4332",
+            "primary": "#012d1d",
+            "surface-container-lowest": "#ffffff",
+            "on-primary-fixed": "#002114",
+            "secondary-fixed": "#a1f4c8",
+            "on-secondary-fixed-variant": "#005236",
+            "on-primary-fixed-variant": "#274e3d",
+            "surface-container-high": "#e6e9e4",
+            "on-tertiary-fixed-variant": "#4d4638",
+            "surface-container": "#ecefea",
+            "inverse-on-surface": "#eff2ed",
+            "tertiary-fixed": "#ede1ce",
+            "inverse-primary": "#a5d0b9",
+            "on-secondary-container": "#1b724f",
+            "tertiary-fixed-dim": "#d0c5b3",
+            "surface-variant": "#e0e3df",
+            "on-tertiary": "#ffffff",
+            "tertiary-container": "#423b2e",
+            "on-background": "#191c1a",
+            "on-error-container": "#93000a",
+            "on-tertiary-container": "#afa594",
+            "surface-bright": "#f7faf5",
+            "inverse-surface": "#2d312e",
+            "on-error": "#ffffff",
+            "primary-fixed-dim": "#a5d0b9",
+            "surface-container-low": "#f1f4f0",
+            "surface-dim": "#d8dbd6",
+            "outline": "#717973",
+            "tertiary": "#2c2519",
+            "primary-fixed": "#c1ecd4",
+            "secondary-fixed-dim": "#86d7ad",
+            "on-surface": "#191c1a",
+            "surface-container-highest": "#e0e3df",
+            "error-container": "#ffdad6"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "gutter-sm": "1rem",
+            "space-xs": "0.25rem",
+            "space-sm": "0.5rem",
+            "margin": "2.5rem",
+            "space-md": "1rem",
+            "margin-sm": "1rem",
+            "gutter": "1.5rem",
+            "space-xl": "2.5rem",
+            "space-lg": "1.5rem",
+            "margin-lg": "4rem"
+          },
+          "fontFamily": {
+            "body-sm": ["Plus Jakarta Sans"],
+            "headline-md": ["Outfit"],
+            "body-md": ["Plus Jakarta Sans"],
+            "headline-xl-mobile": ["Outfit"],
+            "headline-sm": ["Outfit"],
+            "display-lg": ["Outfit"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "headline-lg": ["Outfit"],
+            "label-md": ["Plus Jakarta Sans"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "headline-xl": ["Outfit"],
+            "display-lg-mobile": ["Outfit"],
+            "body-lg": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+            "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+            "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "headline-xl-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "600" }],
+            "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "500" }],
+            "display-lg": ["56px", { "lineHeight": "64px", "fontWeight": "600" }],
+            "label-sm": ["10px", { "lineHeight": "14px", "fontWeight": "700" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "600" }],
+            "label-md": ["12px", { "lineHeight": "16px", "fontWeight": "600" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "fontWeight": "600" }],
+            "headline-xl": ["40px", { "lineHeight": "48px", "fontWeight": "600" }],
+            "display-lg-mobile": ["36px", { "lineHeight": "44px", "fontWeight": "600" }],
+            "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      line-height: 1;
+    }
+  </style>
+</head>
+<body class="min-h-full flex flex-col font-body-md text-on-surface bg-background antialiased selection:bg-secondary-fixed selection:text-on-secondary-fixed">
+<!-- TopNavBar (Shared Component) -->
+<header class="docked full-width top-0 sticky z-40 bg-surface-container-lowest dark:bg-inverse-surface border-b border-outline-variant dark:border-outline shadow-sm dark:shadow-none">
+<div class="w-full max-w-[1440px] mx-auto px-margin-sm md:px-margin lg:px-margin-lg flex items-center justify-between h-16">
+<!-- Brand & Search Area -->
+<div class="flex items-center gap-space-lg flex-1">
+<span class="font-headline-sm text-headline-sm font-semibold tracking-tight text-primary dark:text-inverse-primary shrink-0 select-none">
+          PULP &amp; GRAIN B2B
+        </span>
+<!-- Search bar on left -->
+<div class="hidden sm:flex items-center relative w-full max-w-xs">
+<span class="material-symbols-outlined absolute left-3 text-outline pointer-events-none text-[18px]">search</span>
+<input class="w-full pl-9 pr-3 py-1.5 bg-surface-container-low border border-outline-variant rounded-lg font-body-sm text-body-sm focus:border-secondary focus:ring-1 focus:ring-secondary outline-none text-on-surface" placeholder="Search specs, SKUs, batches..." type="text"/>
+</div>
+</div>
+<!-- Navigation Links -->
+<nav class="hidden md:flex items-center gap-space-lg mx-space-md">
+<a class="text-primary dark:text-primary-fixed border-b-2 border-primary dark:border-primary-fixed font-semibold pb-1 font-body-md text-body-md" href="#">Inventory</a>
+<a class="text-on-surface-variant dark:text-inverse-on-surface hover:text-primary dark:hover:text-primary-fixed pb-1 transition-colors font-body-md text-body-md" href="#">Batches</a>
+<a class="text-on-surface-variant dark:text-inverse-on-surface hover:text-primary dark:hover:text-primary-fixed pb-1 transition-colors font-body-md text-body-md" href="#">Procurement</a>
+<a class="text-on-surface-variant dark:text-inverse-on-surface hover:text-primary dark:hover:text-primary-fixed pb-1 transition-colors font-body-md text-body-md" href="#">Analytics</a>
+</nav>
+<!-- Trailing Action Icons & Primary CTA -->
+<div class="flex items-center gap-space-sm sm:gap-space-md">
+<button class="p-2 text-on-surface-variant hover:text-primary hover:bg-surface-container-low dark:hover:bg-surface-variant transition-colors rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:text-primary hover:bg-surface-container-low dark:hover:bg-surface-variant transition-colors rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined">tune</span>
+</button>
+<button class="hidden sm:inline-flex items-center gap-1.5 bg-primary-container text-on-primary px-space-md py-2 rounded-lg font-label-md text-label-md hover:bg-primary transition-colors active:scale-[0.98]">
+<span class="material-symbols-outlined text-[16px]">add</span>
+<span>Add New Item</span>
+</button>
+<!-- Enterprise Avatar -->
+<div class="relative shrink-0 ml-1">
+<img alt="Enterprise procurement manager portrait" class="w-8 h-8 rounded-full border border-outline-variant object-cover" data-alt="Close-up professional photographic portrait of an enterprise procurement manager wearing a dark forest-green tailored blazer in a bright, modern architectural office with soft daylight and warm bamboo wall accents." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCmk6sGUS3kvvCbn6z6t2G7lfQQ4wQ16VDG6KfIjvyhnhkI03N21XHmNPFQKpkEU15k_KJaftKb5uBdotjkE_gmb2Vw3NuUb8PpTSg88joqZ4N0cKzlPCjzuRQqjZfnFIRQGucGenkG__6uuibdPmv5i4ToUduWEMsCX5hbpTL_cf21905gdczmEqCSmG96Y0w8Ub---7IUCLBmWqWBb1S6pEjzHQRyzzaV-fL1y_I"/>
+<span class="absolute bottom-0 right-0 w-2.5 h-2.5 bg-secondary rounded-full ring-2 ring-surface-container-lowest"></span>
+</div>
+</div>
+</div>
+</header>
+<!-- Shell Wrapper (SideNavBar + Main Content) -->
+<div class="w-full max-w-[1440px] mx-auto flex-1 flex flex-row">
+<!-- SideNavBar (Shared Component) -->
+<aside class="hidden lg:flex flex-col justify-between p-space-md shrink-0 h-[calc(100vh-4rem)] sticky top-16 w-64 border-r border-outline-variant dark:border-outline bg-surface dark:bg-inverse-surface">
+<div class="flex flex-col gap-space-lg">
+<!-- Header Profile Identity -->
+<div class="p-space-sm border border-outline-variant rounded-xl bg-surface-container-lowest">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center border border-outline-variant text-primary font-bold">
+<span class="material-symbols-outlined text-secondary">recycling</span>
+</div>
+<div class="overflow-hidden">
+<h2 class="font-headline-sm text-headline-sm text-primary dark:text-inverse-primary truncate">Industrial Circularity</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate">Enterprise Tier #4892</p>
+</div>
+</div>
+</div>
+<!-- Main Navigation Items (Catalog Overview is active) -->
+<nav class="flex flex-col gap-1">
+<a class="bg-secondary-container dark:bg-secondary text-on-secondary-container dark:text-on-secondary font-semibold rounded-lg px-space-md py-space-sm flex items-center gap-space-sm" href="#">
+<span class="material-symbols-outlined text-primary text-[20px]" data-weight="fill" style="font-variation-settings: 'FILL' 1;">inventory_2</span>
+<span class="font-label-md text-label-md">Catalog Overview</span>
+</a>
+<a class="text-on-surface-variant dark:text-inverse-on-surface hover:bg-surface-container-high dark:hover:bg-surface-variant rounded-lg px-space-md py-space-sm flex items-center gap-space-sm transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]">warehouse</span>
+<span class="font-label-md text-label-md">Stock Inventory</span>
+</a>
+<a class="text-on-surface-variant dark:text-inverse-on-surface hover:bg-surface-container-high dark:hover:bg-surface-variant rounded-lg px-space-md py-space-sm flex items-center gap-space-sm transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]">precision_manufacturing</span>
+<span class="font-label-md text-label-md">Batch Processing</span>
+</a>
+<a class="text-on-surface-variant dark:text-inverse-on-surface hover:bg-surface-container-high dark:hover:bg-surface-variant rounded-lg px-space-md py-space-sm flex items-center gap-space-sm transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]">description</span>
+<span class="font-label-md text-label-md">Spec Sheets</span>
+</a>
+<a class="text-on-surface-variant dark:text-inverse-on-surface hover:bg-surface-container-high dark:hover:bg-surface-variant rounded-lg px-space-md py-space-sm flex items-center gap-space-sm transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]">local_shipping</span>
+<span class="font-label-md text-label-md">Export Logistics</span>
+</a>
+</nav>
+</div>
+<!-- SideNav Footer Actions & Spec CTA -->
+<div class="flex flex-col gap-space-md pt-space-md border-t border-outline-variant">
+<button class="w-full py-2.5 px-3 bg-surface-container-high hover:bg-surface-container-highest text-primary font-label-md text-label-md rounded-lg flex items-center justify-center gap-2 border border-outline-variant transition-colors">
+<span class="material-symbols-outlined text-[18px]">download</span>
+<span>Download Full Spec Sheet</span>
+</button>
+<div class="flex flex-col gap-1">
+<a class="text-on-surface-variant dark:text-inverse-on-surface hover:bg-surface-container-high dark:hover:bg-surface-variant rounded-lg px-space-md py-2 flex items-center gap-space-sm font-label-md text-label-md transition-colors" href="#">
+<span class="material-symbols-outlined text-[18px]">settings</span>
+<span>Settings</span>
+</a>
+<a class="text-on-surface-variant dark:text-inverse-on-surface hover:bg-surface-container-high dark:hover:bg-surface-variant rounded-lg px-space-md py-2 flex items-center gap-space-sm font-label-md text-label-md transition-colors" href="#">
+<span class="material-symbols-outlined text-[18px]">help_outline</span>
+<span>Support</span>
+</a>
+</div>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-1 min-w-0 p-space-md md:p-space-lg lg:p-space-xl flex flex-col gap-space-lg">
+<!-- Breadcrumb & Telemetry Info -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-outline-variant pb-space-sm">
+<nav class="flex items-center gap-2 font-label-md text-label-md text-on-surface-variant">
+<span class="hover:text-primary transition-colors cursor-pointer">Master Catalogue</span>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span class="text-primary font-semibold">All Items</span>
+</nav>
+<div class="flex items-center gap-2">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-secondary-container/40 border border-secondary text-primary font-label-sm text-label-sm uppercase tracking-wider">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+            ASTM D6400 Verified
+          </span>
+<span class="font-label-sm text-label-sm text-outline">Sync Latency: 14ms</span>
+</div>
+</div>
+<!-- Screen Title & Description -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md">
+<div>
+<h1 class="font-headline-lg text-headline-lg text-primary tracking-tight">Catalogue Inventory &amp; Master Products</h1>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1 max-w-3xl">
+            Manage, filter, and inspect enterprise B2B product specifications, SKU batches, and export packaging models.
+          </p>
+</div>
+<!-- Mobile "+ Add New Item" if header button is hidden on small screens -->
+<button class="sm:hidden flex items-center justify-center gap-1.5 bg-primary-container text-on-primary px-space-md py-2 rounded-lg font-label-md text-label-md w-full">
+<span class="material-symbols-outlined text-[16px]">add</span>
+<span>Add New Item</span>
+</button>
+</div>
+<!-- Industrial Spec Telemetry Strip -->
+<div class="grid grid-cols-2 md:grid-cols-4 bg-surface-container-low border border-outline-variant rounded-xl overflow-hidden divide-y md:divide-y-0 md:divide-x divide-outline-variant">
+<div class="p-space-md flex flex-col">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline">Active Product SKUs</span>
+<span class="font-headline-md text-headline-md font-semibold text-primary mt-1 font-mono">36 Models</span>
+<span class="font-label-sm text-label-sm text-secondary mt-0.5">100% Certified Compostable</span>
+</div>
+<div class="p-space-md flex flex-col">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline">Average Wall Caliper</span>
+<span class="font-headline-md text-headline-md font-semibold text-primary mt-1 font-mono">1.25 ± 0.08 mm</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-0.5">High rigidity thermal pressed</span>
+</div>
+<div class="p-space-md flex flex-col">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline">Export Port Dispatch</span>
+<span class="font-headline-md text-headline-md font-semibold text-primary mt-1 font-mono">Mundra / JNPT</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-0.5">FOB / CIF Container Loaded</span>
+</div>
+<div class="p-space-md flex flex-col">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline">Monthly Production Run</span>
+<span class="font-headline-md text-headline-md font-semibold text-primary mt-1 font-mono">14.8M Units</span>
+<span class="font-label-sm text-label-sm text-secondary mt-0.5">1,240 MT Bio-offset</span>
+</div>
+</div>
+<!-- Action & Filter Bar -->
+<div class="bg-surface-container-lowest p-space-md border border-outline-variant rounded-xl flex flex-col gap-space-md">
+<!-- Category Filter Chips -->
+<div class="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-none">
+<button class="px-3.5 py-1.5 rounded-full font-label-md text-label-md bg-primary text-on-primary border border-primary shrink-0 transition-transform active:scale-95">
+            All (36)
+          </button>
+<button class="px-3.5 py-1.5 rounded-full font-label-md text-label-md bg-surface-container hover:bg-surface-container-high text-on-surface-variant border border-outline-variant shrink-0 transition-colors">
+            Small Leather Goods (4)
+          </button>
+<button class="px-3.5 py-1.5 rounded-full font-label-md text-label-md bg-surface-container hover:bg-surface-container-high text-on-surface-variant border border-outline-variant shrink-0 transition-colors">
+            Sugarcane Bagasse Clamshells (10)
+          </button>
+<button class="px-3.5 py-1.5 rounded-full font-label-md text-label-md bg-surface-container hover:bg-surface-container-high text-on-surface-variant border border-outline-variant shrink-0 transition-colors">
+            Plates &amp; Trays (12)
+          </button>
+<button class="px-3.5 py-1.5 rounded-full font-label-md text-label-md bg-surface-container hover:bg-surface-container-high text-on-surface-variant border border-outline-variant shrink-0 transition-colors">
+            Bowls &amp; Cups (10)
+          </button>
+</div>
+<!-- Secondary Controls: Search, Status Filter, View Switcher -->
+<div class="flex flex-col md:flex-row items-center justify-between gap-space-md pt-2 border-t border-outline-variant">
+<div class="flex items-center gap-3 w-full md:w-auto">
+<!-- Search Bar inside action bar -->
+<div class="relative flex-1 md:w-72">
+<span class="material-symbols-outlined absolute left-3 top-2.5 text-outline text-[18px]">search</span>
+<input class="w-full pl-9 pr-3 py-1.5 bg-surface-container-low border border-outline-variant rounded-lg font-body-sm text-body-sm focus:border-secondary focus:ring-1 focus:ring-secondary outline-none text-on-surface" placeholder="Search models, materials..." type="text"/>
+</div>
+<!-- Status Dropdown -->
+<select class="bg-surface-container-low border border-outline-variant rounded-lg font-body-sm text-body-sm py-1.5 pl-3 pr-8 focus:border-secondary focus:ring-1 focus:ring-secondary text-on-surface">
+<option>All Statuses</option>
+<option>Published</option>
+<option>Draft</option>
+<option>Export Ready</option>
+</select>
+</div>
+<!-- View Switcher & Counter -->
+<div class="flex items-center justify-between w-full md:w-auto gap-space-md">
+<span class="font-body-sm text-body-sm text-on-surface-variant">
+              Showing <span class="font-semibold text-primary">1–9</span> of 36 Products
+            </span>
+<div class="inline-flex rounded-lg border border-outline-variant p-0.5 bg-surface-container-low">
+<button class="px-2.5 py-1 rounded bg-surface-container-lowest text-primary shadow-sm flex items-center gap-1 font-label-md text-label-md">
+<span class="material-symbols-outlined text-[18px]">grid_view</span>
+<span class="hidden sm:inline">Grid</span>
+</button>
+<button class="px-2.5 py-1 rounded text-on-surface-variant hover:text-primary flex items-center gap-1 font-label-md text-label-md transition-colors">
+<span class="material-symbols-outlined text-[18px]">view_list</span>
+<span class="hidden sm:inline">List</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Main Content Grid (3-4 columns responsive) -->
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-space-lg">
+<!-- CARD 1: Handcrafted Leather Good -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant hover:border-secondary transition-all duration-200 shadow-sm hover:shadow-md flex flex-col overflow-hidden group">
+<div class="p-space-md bg-surface-container-low relative border-b border-outline-variant">
+<div class="aspect-[16/10] w-full rounded-lg overflow-hidden bg-surface-container relative">
+<img alt="Handcrafted Leather Good" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Premium close-up studio shot of handcrafted vegetable-tanned artisanal leather wallet and accessories featuring intricate Shantiniketan embossed traditional patterns, resting on a clean light sand-colored limestone workbench under diffuse studio daylight with dark green organic accents." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCa5Tun08O3qEBVB7e6Gfax8NXsEj-aKlGT-NmQbKYqMqPnDAZ3N7GjuC6S0v2OsiQZ-Ni6J2-jTKsiATm_108ntfmGoerIVBSaNOH-1vB3SzLeUH6QLpkh6dZgv47IQURdz4Q3KOTMOEJPiTYmqKvxSf3VzSkDbgppJiRED1ViVFXxd03I6oUnt-FBp5bghdRAY5plw9RLce_lDaQkj_W0hRSoS9lpnlWkoMfHKsA"/>
+<div class="absolute top-2.5 left-2.5 flex items-center gap-1.5">
+<span class="px-2 py-0.5 rounded font-label-sm text-label-sm uppercase bg-surface-container-lowest/90 text-primary border border-outline-variant">Small Leather Goods</span>
+</div>
+<div class="absolute top-2.5 right-2.5">
+<span class="px-2 py-0.5 rounded font-label-sm text-label-sm uppercase bg-secondary-container text-on-secondary-container font-semibold border border-secondary">Published</span>
+</div>
+<!-- Multiple thumbnail indicator -->
+<div class="absolute bottom-2.5 right-2.5 px-2 py-0.5 rounded bg-inverse-surface/80 text-inverse-on-surface font-label-sm text-label-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">photo_library</span>
+<span>4 Shots</span>
+</div>
+</div>
+</div>
+<div class="p-space-md flex-1 flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between gap-2">
+<span class="font-mono text-label-md font-bold text-secondary bg-surface-container-low px-2 py-0.5 rounded border border-outline-variant"># OM-7637</span>
+<span class="font-label-sm text-label-sm text-outline">Live Store Sync</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary font-semibold mt-2 group-hover:text-secondary transition-colors">
+                Handcrafted Leather Good
+              </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1 line-clamp-2">
+                Masterfully handcrafted in Kolkata with traditional Shantiniketan embossing. Vegetable-tanned grain with durable edge burnishing.
+              </p>
+<!-- Technical Chips -->
+<div class="flex flex-wrap gap-1.5 mt-3">
+<span class="px-2 py-0.5 rounded bg-surface-container border border-outline-variant font-label-sm text-label-sm text-on-surface">Kolkata Origin</span>
+<span class="px-2 py-0.5 rounded bg-surface-container border border-outline-variant font-label-sm text-label-sm text-on-surface">Mundra &amp; JNPT Hub</span>
+<span class="px-2 py-0.5 rounded bg-surface-container border border-outline-variant font-label-sm text-label-sm text-on-surface">Veg-Tanned</span>
+</div>
+</div>
+<!-- Monospace Logistics & Actions -->
+<div class="mt-space-md pt-space-sm border-t border-outline-variant flex flex-col gap-space-sm">
+<div class="flex items-center justify-between font-mono text-label-sm text-on-surface-variant">
+<span>MOQ: <strong class="text-primary font-semibold">24 Units case pack</strong></span>
+<span>Dispatch: <strong class="text-primary font-semibold">FOB Port</strong></span>
+</div>
+<div class="flex items-center gap-2 pt-1">
+<button class="flex-1 py-1.5 px-2 bg-surface-container hover:bg-surface-container-high text-primary font-label-md text-label-md rounded border border-outline-variant transition-colors flex items-center justify-center gap-1">
+<span class="material-symbols-outlined text-[16px]">edit</span>
+<span>Edit Item</span>
+</button>
+<button class="p-1.5 bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-primary rounded border border-outline-variant transition-colors" title="Duplicate">
+<span class="material-symbols-outlined text-[18px]">content_copy</span>
+</button>
+<button class="p-1.5 bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-primary rounded border border-outline-variant transition-colors" title="View Specs">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- CARD 2: 9" Round Dinner Plates -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant hover:border-secondary transition-all duration-200 shadow-sm hover:shadow-md flex flex-col overflow-hidden group">
+<div class="p-space-md bg-surface-container-low relative border-b border-outline-variant">
+<div class="aspect-[16/10] w-full rounded-lg overflow-hidden bg-surface-container relative">
+<img alt="9 inch Round Dinner Plates" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Editorial product shot of natural off-white molded bamboo fiber 9-inch round dinner plates arranged neatly on a travertine surface, featuring subtle rim textures, warm neutral tones, crisp directional natural lighting, and modern organic packaging aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuARyPZCO9hLdzOpI1rRnFqQfrit2UN7evjbkyBQSrBmQ4gxTsjg-kUQncVbhDyv0KxFtE_b9AqrUvQXlEn5aybCs-YqWBxgazgFomh4pGXlHpQHB6o5--CHzv1keWmGGMEJ8rwy7UQBKs5PWH7QFA9Smng_ArNiZEl4WqkFv58BRqpw1D84bXGVQ0Lr2l3bzLF2EDgQb3VOWi6y4-4-VnJ5DpVuQBnO40LF8dzUVSQ"/>
+<div class="absolute top-2.5 left-2.5 flex items-center gap-1.5">
+<span class="px-2 py-0.5 rounded font-label-sm text-label-sm uppercase bg-surface-container-lowest/90 text-primary border border-outline-variant">Plates &amp; Trays</span>
+</div>
+<div class="absolute top-2.5 right-2.5">
+<span class="px-2 py-0.5 rounded font-label-sm text-label-sm uppercase bg-secondary-fixed text-on-secondary-fixed font-semibold border border-secondary">Export Ready</span>
+</div>
+</div>
+</div>
+<div class="p-space-md flex-1 flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between gap-2">
+<span class="font-mono text-label-md font-bold text-secondary bg-surface-container-low px-2 py-0.5 rounded border border-outline-variant"># BF-PL9-01</span>
+<span class="font-label-sm text-label-sm text-secondary">ASTM D6400</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary font-semibold mt-2 group-hover:text-secondary transition-colors">
+                9" Round Dinner Plates
+              </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1 line-clamp-2">
+                100% Bamboo Fiber with engineered rigid rim. High-density hot-press with guaranteed water &amp; hot oil barrier resistance.
+              </p>
+<!-- Technical Chips -->
+<div class="flex flex-wrap gap-1.5 mt-3">
+<span class="px-2 py-0.5 rounded bg-surface-container border border-outline-variant font-label-sm text-label-sm text-on-surface">100% Bamboo Fiber</span>
+<span class="px-2 py-0.5 rounded bg-surface-container border border-outline-variant font-label-sm text-label-sm text-on-surface">220°C Thermal Cap</span>
+<span class="px-2 py-0.5 rounded bg-surface-container border border-outline-variant font-label-sm text-label-sm text-on-surface">Rigid Rim</span>
+</div>
+</div>
+<!-- Monospace Logistics & Actions -->
+<div class="mt-space-md pt-space-sm border-t border-outline-variant flex flex-col gap-space-sm">
+<div class="flex items-center justify-between font-mono text-label-sm text-on-surface-variant">
+<span>Pack: <strong class="text-primary font-semibold">500 pcs/case</strong></span>
+<span>MOQ: <strong class="text-primary font-semibold">20,000 pcs</strong></span>
+</div>
+<div class="flex items-center gap-2 pt-1">
+<button class="flex-1 py-1.5 px-2 bg-surface-container hover:bg-surface-container-high text-primary font-label-md text-label-md rounded border border-outline-variant transition-colors flex items-center justify-center gap-1">
+<span class="material-symbols-outlined text-[16px]">edit</span>
+<span>Edit Item</span>
+</button>
+<button class="p-1.5 bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-primary rounded border border-outline-variant transition-colors" title="Duplicate">
+<span class="material-symbols-outlined text-[18px]">content_copy</span>
+</button>
+<button class="p-1.5 bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-primary rounded border border-outline-variant transition-colors" title="View Specs">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- CARD 3: Hinged Food Clamshells -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant hover:border-secondary transition-all duration-200 shadow-sm hover:shadow-md flex flex-col overflow-hidden group">
+<div class="p-space-md bg-surface-container-low relative border-b border-outline-variant">
+<div class="aspect-[16/10] w-full rounded-lg overflow-hidden bg-surface-container relative">
+<img alt="Hinged Food Clamshells" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="High quality studio packaging photograph showing closed and stacked unbleached sugarcane bagasse hinged clamshell takeaway containers on a clean light sand stone background with warm architectural lighting and precise natural molded pulp texture." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDBDR3clLOXSI6smGylr8gRMB5mLad1LetKgRBuZDpwVUHjnjNCgImB4fFVxlc1bOQEbA6MCI5MXHxaE-bJQcLdoEao1X1CZfCbVMMKkgATHY4v_IwbLANbm9KVlK0U3G0Qr2CDZCnt8NpjWhHgjrQN4SFI9NJKvgBPO4zng3Wk8-pz83LItxBySx28ECqxkIlpbFRwNtNYRrbJfsQ-jkodBmLStcYtBWeiA32Lcys"/>
+<div class="absolute top-2.5 left-2.5 flex items-center gap-1.5">
+<span class="px-2 py-0.5 rounded font-label-sm text-label-sm uppercase bg-surface-container-lowest/90 text-primary border border-outline-variant">Sugarcane Clamshells</span>
+</div>
+<div class="absolute top-2.5 right-2.5">
+<span class="px-2 py-0.5 rounded font-label-sm text-label-sm uppercase bg-secondary-fixed text-on-secondary-fixed font-semibold border border-secondary">Export Ready</span>
+</div>
+</div>
+</div>
+<div class="p-space-md flex-1 flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between gap-2">
+<span class="font-mono text-label-md font-bold text-secondary bg-surface-container-low px-2 py-0.5 rounded border border-outline-variant"># BF-BX8-01</span>
+<span class="font-label-sm text-label-sm text-secondary">EN 13432</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary font-semibold mt-2 group-hover:text-secondary transition-colors">
+                Hinged Food Clamshells
+              </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1 line-clamp-2">
+                Sugarcane Bagasse construction with precision self-locking audible snap latch. Resists oil permeation up to 120°C for takeaway chains.
+              </p>
+<!-- Technical Chips -->
+<div class="flex flex-wrap gap-1.5 mt-3">
+<span class="px-2 py-0.5 rounded bg-surface-container border border-outline-variant font-label-sm text-label-sm text-on-surface">Sugarcane Bagasse</span>
+<span class="px-2 py-0.5 rounded bg-surface-container border border-outline-variant font-label-sm text-label-sm text-on-surface">Audible Snap Lock</span>
+<span class="px-2 py-0.5 rounded bg-surface-container border border-outline-variant font-label-sm text-label-sm text-on-surface">Oil Resistant</span>
+</div>
+</div>
+<!-- Monospace Logistics & Actions -->
+<div class="mt-space-md pt-space-sm border-t border-outline-variant flex flex-col gap-space-sm">
+<div class="flex items-center justify-between font-mono text-label-sm text-on-surface-variant">
+<span>Pack: <strong class="text-primary font-semibold">250 pcs/case</strong></span>
+<span>MOQ: <strong class="text-primary font-semibold">25,000 pcs</strong></span>
+</div>
+<div class="flex items-center gap-2 pt-1">
+<button class="flex-1 py-1.5 px-2 bg-surface-container hover:bg-surface-container-high text-primary font-label-md text-label-md rounded border border-outline-variant transition-colors flex items-center justify-center gap-1">
+<span class="material-symbols-outlined text-[16px]">edit</span>
+<span>Edit Item</span>
+</button>
+<button class="p-1.5 bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-primary rounded border border-outline-variant transition-colors" title="Duplicate">
+<span class="material-symbols-outlined text-[18px]">content_copy</span>
+</button>
+<button class="p-1.5 bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-primary rounded border border-outline-variant transition-colors" title="View Specs">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- CARD 4: 3-Compartment Bento Plate with Lid -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant hover:border-secondary transition-all duration-200 shadow-sm hover:shadow-md flex flex-col overflow-hidden group">
+<div class="p-space-md bg-surface-container-low relative border-b border-outline-variant">
+<div class="aspect-[16/10] w-full rounded-lg overflow-hidden bg-surface-container relative">
+<img alt="3-Compartment Bento Plate with Lid" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Crisp studio photograph of a 3-compartment molded pulp bento meal prep tray with clear eco lid containing healthy food samples on a light stone counter with natural warm window lighting and subtle dark green herb elements." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAtza1g2k4IYNqK0xwniYmUwTJjaD2biU5n4-FjHzQaCKZ1Lw1ydiVmg7V68PUZPXLJQDIbiUOIpGqdIYAWio1P5nEvnrz_Tl-uOIsLfQxpmABG1MlR4aEUGvxSHUIFvDdf2QeTUGK6gSRAoyn0JmsqRsSg9-O1WQQMJUOD7i4dE5qIDW7x70oXhigTHU3OL9B5VNS6QFt3fzTgBTn6P8bcOQOSwlOX8Axxkv6H5nA"/>
+<div class="absolute top-2.5 left-2.5 flex items-center gap-1.5">
+<span class="px-2 py-0.5 rounded font-label-sm text-label-sm uppercase bg-surface-container-lowest/90 text-primary border border-outline-variant">Plates &amp; Trays</span>
+</div>
+<div class="absolute top-2.5 right-2.5">
+<span class="px-2 py-0.5 rounded font-label-sm text-label-sm uppercase bg-secondary-fixed text-on-secondary-fixed font-semibold border border-secondary">Export Ready</span>
+</div>
+</div>
+</div>
+<div class="p-space-md flex-1 flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between gap-2">
+<span class="font-mono text-label-md font-bold text-secondary bg-surface-container-low px-2 py-0.5 rounded border border-outline-variant"># BF-CMP3-04</span>
+<span class="font-label-sm text-label-sm text-secondary">Aqueous Coated</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary font-semibold mt-2 group-hover:text-secondary transition-colors">
+                3-Compartment Bento Plate with Lid
+              </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1 line-clamp-2">
+                Molded pulp base with anti-cross-contamination divider walls. Compatible with clear recyclable or molded fiber lids.
+              </p>
+<!-- Technical Chips -->
+<div class="flex flex-wrap gap-1.5 mt-3">
+<span class="px-2 py-0.5 rounded bg-surface-container border border-outline-variant font-label-sm text-label-sm text-on-surface">Molded Pulp</span>
+<span class="px-2 py-0.5 rounded bg-surface-container border border-outline-variant font-label-sm text-label-sm text-on-surface">3-Division Wall</span>
+<span class="px-2 py-0.5 rounded bg-surface-container border border-outline-variant font-label-sm text-label-sm text-on-surface">Stackable Rim</span>
+</div>
+</div>
+<!-- Monospace Logistics & Actions -->
+<div class="mt-space-md pt-space-sm border-t border-outline-variant flex flex-col gap-space-sm">
+<div class="flex items-center justify-between font-mono text-label-sm text-on-surface-variant">
+<span>Pack: <strong class="text-primary font-semibold">300 sets/case</strong></span>
+<span>MOQ: <strong class="text-primary font-semibold">25,000 pcs</strong></span>
+</div>
+<div class="flex items-center gap-2 pt-1">
+<button class="flex-1 py-1.5 px-2 bg-surface-container hover:bg-surface-container-high text-primary font-label-md text-label-md rounded border border-outline-variant transition-colors flex items-center justify-center gap-1">
+<span class="material-symbols-outlined text-[16px]">edit</span>
+<span>Edit Item</span>
+</button>
+<button class="p-1.5 bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-primary rounded border border-outline-variant transition-colors" title="Duplicate">
+<span class="material-symbols-outlined text-[18px]">content_copy</span>
+</button>
+<button class="p-1.5 bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-primary rounded border border-outline-variant transition-colors" title="View Specs">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- CARD 5: Rectangular Catering Serving Platters -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant hover:border-secondary transition-all duration-200 shadow-sm hover:shadow-md flex flex-col overflow-hidden group">
+<div class="p-space-md bg-surface-container-low relative border-b border-outline-variant">
+<div class="aspect-[16/10] w-full rounded-lg overflow-hidden bg-surface-container relative">
+<img alt="Rectangular Catering Serving Platters" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Professional commercial photography of wide rectangular catering platters molded from natural raw bamboo fiber filled with colorful artisanal appetizers on a warm neutral linen and wood surface with high-spec industrial aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBqlMaf458Mdd6gOBZxbW42tFyYnhm7HDwLOOP-_aBOFxxfoTDUxyoVTTxHoRYi2Y78lNmiKVwb_wpM2IJePA58E82DzftL9atJVcnmK1CTfNbzHZ4D_fcg-XiQgMkmReASSnBWH3oBBaiE8LLETlcUXkzdlRp-DfZzxUYOXwVyZjX7dXh7zLrpeKOkouHE4kTIgLcbKz_Rbj4ejP2QcRwjegdqxEnOGjJlpUPM0Mc"/>
+<div class="absolute top-2.5 left-2.5 flex items-center gap-1.5">
+<span class="px-2 py-0.5 rounded font-label-sm text-label-sm uppercase bg-surface-container-lowest/90 text-primary border border-outline-variant">Plates &amp; Trays</span>
+</div>
+<div class="absolute top-2.5 right-2.5">
+<span class="px-2 py-0.5 rounded font-label-sm text-label-sm uppercase bg-secondary-fixed text-on-secondary-fixed font-semibold border border-secondary">Export Ready</span>
+</div>
+</div>
+</div>
+<div class="p-space-md flex-1 flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between gap-2">
+<span class="font-mono text-label-md font-bold text-secondary bg-surface-container-low border border-outline-variant px-2 py-0.5 rounded"># BF-TRY-05</span>
+<span class="font-label-sm text-label-sm text-secondary">Heavy Gauge</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary font-semibold mt-2 group-hover:text-secondary transition-colors">
+                Rectangular Catering Serving Platters
+              </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1 line-clamp-2">
+                Heavy gauge reinforced ribbed base designed for high-load commercial banquet catering and deli service lines.
+              </p>
+<!-- Technical Chips -->
+<div class="flex flex-wrap gap-1.5 mt-3">
+<span class="px-2 py-0.5 rounded bg-surface-container border border-outline-variant font-label-sm text-label-sm text-on-surface">Reinforced Base</span>
+<span class="px-2 py-0.5 rounded bg-surface-container border border-outline-variant font-label-sm text-label-sm text-on-surface">450 x 300 mm</span>
+<span class="px-2 py-0.5 rounded bg-surface-container border border-outline-variant font-label-sm text-label-sm text-on-surface">BPI Certified</span>
+</div>
+</div>
+<!-- Monospace Logistics & Actions -->
+<div class="mt-space-md pt-space-sm border-t border-outline-variant flex flex-col gap-space-sm">
+<div class="flex items-center justify-between font-mono text-label-sm text-on-surface-variant">
+<span>Pack: <strong class="text-primary font-semibold">150 pcs/case</strong></span>
+<span>MOQ: <strong class="text-primary font-semibold">15,000 pcs</strong></span>
+</div>
+<div class="flex items-center gap-2 pt-1">
+<button class="flex-1 py-1.5 px-2 bg-surface-container hover:bg-surface-container-high text-primary font-label-md text-label-md rounded border border-outline-variant transition-colors flex items-center justify-center gap-1">
+<span class="material-symbols-outlined text-[16px]">edit</span>
+<span>Edit Item</span>
+</button>
+<button class="p-1.5 bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-primary rounded border border-outline-variant transition-colors" title="Duplicate">
+<span class="material-symbols-outlined text-[18px]">content_copy</span>
+</button>
+<button class="p-1.5 bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-primary rounded border border-outline-variant transition-colors" title="View Specs">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- CARD 6: Insulated Beverage Cups & Sip Lids -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant hover:border-secondary transition-all duration-200 shadow-sm hover:shadow-md flex flex-col overflow-hidden group">
+<div class="p-space-md bg-surface-container-low relative border-b border-outline-variant">
+<div class="aspect-[16/10] w-full rounded-lg overflow-hidden bg-surface-container relative">
+<img alt="Insulated Beverage Cups and Sip Lids" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Technical architectural product view of modern tactile molded paper hot beverage cups with tight sip-through lids lined on an engineering inspection table with neutral beige aesthetic and clean forest green accents." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB4Zs0CjfnxPbOokvHw63_g5OaHxNi3iZ_K4TzyxAjfUjBsJxH4hOxR4Kk00mxYxvimCpaIcckFgoK6KAXRaQ65c-da4lqE1jyoGt8oqyOFMl7v2zVleLJUzhQ67ecarcTDNpdDBEgeQ8PEEpFZO6OFwIL-wMxFihMZZcaHfgW8Mam9thesW6IxrTz-I_KoCvbsZOPhVien_SYBlZouhQOvnPXNvuwuULAF4TjP08g"/>
+<div class="absolute top-2.5 left-2.5 flex items-center gap-1.5">
+<span class="px-2 py-0.5 rounded font-label-sm text-label-sm uppercase bg-surface-container-lowest/90 text-primary border border-outline-variant">Bowls &amp; Cups</span>
+</div>
+<div class="absolute top-2.5 right-2.5">
+<span class="px-2 py-0.5 rounded font-label-sm text-label-sm uppercase bg-secondary-fixed text-on-secondary-fixed font-semibold border border-secondary">Export Ready</span>
+</div>
+</div>
+</div>
+<div class="p-space-md flex-1 flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between gap-2">
+<span class="font-mono text-label-md font-bold text-secondary bg-surface-container-low border border-outline-variant px-2 py-0.5 rounded"># BF-CUP12-06</span>
+<span class="font-label-sm text-label-sm text-secondary">PFAS Free</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary font-semibold mt-2 group-hover:text-secondary transition-colors">
+                Insulated Beverage Cups &amp; Sip Lids
+              </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1 line-clamp-2">
+                Aqueous coated bamboo pulp eliminates traditional plastic liners. Double-wall thermal structure prevents hand scald.
+              </p>
+<!-- Technical Chips -->
+<div class="flex flex-wrap gap-1.5 mt-3">
+<span class="px-2 py-0.5 rounded bg-surface-container border border-outline-variant font-label-sm text-label-sm text-on-surface">Aqueous Coated</span>
+<span class="px-2 py-0.5 rounded bg-surface-container border border-outline-variant font-label-sm text-label-sm text-on-surface">12oz / 350ml</span>
+<span class="px-2 py-0.5 rounded bg-surface-container border border-outline-variant font-label-sm text-label-sm text-on-surface">Double Wall</span>
+</div>
+</div>
+<!-- Monospace Logistics & Actions -->
+<div class="mt-space-md pt-space-sm border-t border-outline-variant flex flex-col gap-space-sm">
+<div class="flex items-center justify-between font-mono text-label-sm text-on-surface-variant">
+<span>Pack: <strong class="text-primary font-semibold">1,000 pcs/case</strong></span>
+<span>MOQ: <strong class="text-primary font-semibold">50,000 pcs</strong></span>
+</div>
+<div class="flex items-center gap-2 pt-1">
+<button class="flex-1 py-1.5 px-2 bg-surface-container hover:bg-surface-container-high text-primary font-label-md text-label-md rounded border border-outline-variant transition-colors flex items-center justify-center gap-1">
+<span class="material-symbols-outlined text-[16px]">edit</span>
+<span>Edit Item</span>
+</button>
+<button class="p-1.5 bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-primary rounded border border-outline-variant transition-colors" title="Duplicate">
+<span class="material-symbols-outlined text-[18px]">content_copy</span>
+</button>
+<button class="p-1.5 bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-primary rounded border border-outline-variant transition-colors" title="View Specs">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- CARD 7: Deep Molded Soup & Salad Bowls -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant hover:border-secondary transition-all duration-200 shadow-sm hover:shadow-md flex flex-col overflow-hidden group">
+<div class="p-space-md bg-surface-container-low relative border-b border-outline-variant">
+<div class="aspect-[16/10] w-full rounded-lg overflow-hidden bg-surface-container relative">
+<img alt="Deep Molded Soup and Salad Bowls" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Crisp studio photograph of round compostable molded pulp salad and soup bowls with sealed clear tops displaying fresh mixed greens and hot broth against a sand-colored stone background with precision earth aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCxob-eSuvrlZL-6wDBnr3hwb3jvVLV_WFkofTpms5Dw4HY8qdrJYyEaXoYW0vpKvzGFu-fDS772a3V5YaWeqAhVjSEDw92ZKYVgePxS0ACAiiV-e99ybWUUvfzSqK1KEZvTUdCQxJhQKc3QKAlyuUoHS36d-BkELbKY-JnKxt69ewER7-fG0pf_jv07fo-HFde9yPjAHuuhwHZ92qUBIUtZz63grIvn7PgGpAR_q4"/>
+<div class="absolute top-2.5 left-2.5 flex items-center gap-1.5">
+<span class="px-2 py-0.5 rounded font-label-sm text-label-sm uppercase bg-surface-container-lowest/90 text-primary border border-outline-variant">Bowls &amp; Cups</span>
+</div>
+<div class="absolute top-2.5 right-2.5">
+<span class="px-2 py-0.5 rounded font-label-sm text-label-sm uppercase bg-secondary-fixed text-on-secondary-fixed font-semibold border border-secondary">Export Ready</span>
+</div>
+</div>
+</div>
+<div class="p-space-md flex-1 flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between gap-2">
+<span class="font-mono text-label-md font-bold text-secondary bg-surface-container-low border border-outline-variant px-2 py-0.5 rounded"># BF-BW16-02</span>
+<span class="font-label-sm text-label-sm text-secondary">Leakproof Snap</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary font-semibold mt-2 group-hover:text-secondary transition-colors">
+                Deep Molded Soup &amp; Salad Bowls
+              </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1 line-clamp-2">
+                Wide capacity format with universal tight-tolerance snap ring. Holds boiling broths without wall softening or de-lamination.
+              </p>
+<!-- Technical Chips -->
+<div class="flex flex-wrap gap-1.5 mt-3">
+<span class="px-2 py-0.5 rounded bg-surface-container border border-outline-variant font-label-sm text-label-sm text-on-surface">12oz – 32oz</span>
+<span class="px-2 py-0.5 rounded bg-surface-container border border-outline-variant font-label-sm text-label-sm text-on-surface">Tight Snap Lid</span>
+<span class="px-2 py-0.5 rounded bg-surface-container border border-outline-variant font-label-sm text-label-sm text-on-surface">Zero PLA Option</span>
+</div>
+</div>
+<!-- Monospace Logistics & Actions -->
+<div class="mt-space-md pt-space-sm border-t border-outline-variant flex flex-col gap-space-sm">
+<div class="flex items-center justify-between font-mono text-label-sm text-on-surface-variant">
+<span>Pack: <strong class="text-primary font-semibold">400 pcs/case</strong></span>
+<span>MOQ: <strong class="text-primary font-semibold">30,000 pcs</strong></span>
+</div>
+<div class="flex items-center gap-2 pt-1">
+<button class="flex-1 py-1.5 px-2 bg-surface-container hover:bg-surface-container-high text-primary font-label-md text-label-md rounded border border-outline-variant transition-colors flex items-center justify-center gap-1">
+<span class="material-symbols-outlined text-[16px]">edit</span>
+<span>Edit Item</span>
+</button>
+<button class="p-1.5 bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-primary rounded border border-outline-variant transition-colors" title="Duplicate">
+<span class="material-symbols-outlined text-[18px]">content_copy</span>
+</button>
+<button class="p-1.5 bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-primary rounded border border-outline-variant transition-colors" title="View Specs">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- CARD 8: Modular Takeout Rectangular Containers -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant hover:border-secondary transition-all duration-200 shadow-sm hover:shadow-md flex flex-col overflow-hidden group">
+<div class="p-space-md bg-surface-container-low relative border-b border-outline-variant">
+<div class="aspect-[16/10] w-full rounded-lg overflow-hidden bg-surface-container relative">
+<img alt="Modular Takeout Rectangular Containers" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Editorial product shot of rectangular biodegradable meal delivery boxes stacked neatly, showing crisp geometric corners and clear grooved lids under soft bright daylight with warm natural textures." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzdBP3ibTv_IerTIx47Qv5bQg7u_srcdPIqBpVW9iVhGyIJ5AGu4hXNHVPQKbuuEVtOcGwQss-nPdnRcTyAgHUaazPke0lpWqoU2uk74BMF9QRVnBHfAP3cNVQQ2WEGgGceZgHAJ9eYEKdYGbq-gIwi9BFmJBSqFVp2301IZObSSBpKIMt2eb-ksD_8L6dSydusYnuLcO0IJK4BjA8qaRZrpQNDPj1gmvUR0BBBtc"/>
+<div class="absolute top-2.5 left-2.5 flex items-center gap-1.5">
+<span class="px-2 py-0.5 rounded font-label-sm text-label-sm uppercase bg-surface-container-lowest/90 text-primary border border-outline-variant">Sugarcane Clamshells</span>
+</div>
+<div class="absolute top-2.5 right-2.5">
+<span class="px-2 py-0.5 rounded font-label-sm text-label-sm uppercase bg-secondary-fixed text-on-secondary-fixed font-semibold border border-secondary">Export Ready</span>
+</div>
+</div>
+</div>
+<div class="p-space-md flex-1 flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between gap-2">
+<span class="font-mono text-label-md font-bold text-secondary bg-surface-container-low border border-outline-variant px-2 py-0.5 rounded"># BF-CNT-07</span>
+<span class="font-label-sm text-label-sm text-secondary">Delivery Spec</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary font-semibold mt-2 group-hover:text-secondary transition-colors">
+                Modular Takeout Rectangular Containers
+              </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1 line-clamp-2">
+                Standard delivery logistics spec with interlocking lid channels designed to resist side tipping during third-party courier dispatch.
+              </p>
+<!-- Technical Chips -->
+<div class="flex flex-wrap gap-1.5 mt-3">
+<span class="px-2 py-0.5 rounded bg-surface-container border border-outline-variant font-label-sm text-label-sm text-on-surface">500ml – 1000ml</span>
+<span class="px-2 py-0.5 rounded bg-surface-container border border-outline-variant font-label-sm text-label-sm text-on-surface">Anti-Tip Ribs</span>
+<span class="px-2 py-0.5 rounded bg-surface-container border border-outline-variant font-label-sm text-label-sm text-on-surface">Microwave Safe</span>
+</div>
+</div>
+<!-- Monospace Logistics & Actions -->
+<div class="mt-space-md pt-space-sm border-t border-outline-variant flex flex-col gap-space-sm">
+<div class="flex items-center justify-between font-mono text-label-sm text-on-surface-variant">
+<span>Pack: <strong class="text-primary font-semibold">500 pcs/case</strong></span>
+<span>MOQ: <strong class="text-primary font-semibold">20,000 pcs</strong></span>
+</div>
+<div class="flex items-center gap-2 pt-1">
+<button class="flex-1 py-1.5 px-2 bg-surface-container hover:bg-surface-container-high text-primary font-label-md text-label-md rounded border border-outline-variant transition-colors flex items-center justify-center gap-1">
+<span class="material-symbols-outlined text-[16px]">edit</span>
+<span>Edit Item</span>
+</button>
+<button class="p-1.5 bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-primary rounded border border-outline-variant transition-colors" title="Duplicate">
+<span class="material-symbols-outlined text-[18px]">content_copy</span>
+</button>
+<button class="p-1.5 bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-primary rounded border border-outline-variant transition-colors" title="View Specs">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- CARD 9: Bespoke Tooling & Custom Molded Prototype -->
+<div class="bg-surface-container-lowest rounded-xl border border-dashed border-outline hover:border-secondary transition-all duration-200 shadow-sm hover:shadow-md flex flex-col overflow-hidden group">
+<div class="p-space-md bg-surface-container relative border-b border-outline-variant">
+<div class="aspect-[16/10] w-full rounded-lg overflow-hidden bg-surface-container-high flex flex-col items-center justify-center relative p-space-md text-center">
+<div class="w-12 h-12 rounded-full bg-surface-container-lowest border border-outline-variant flex items-center justify-center text-secondary mb-2 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[24px]">architecture</span>
+</div>
+<span class="font-headline-sm text-headline-sm text-primary font-semibold">Custom CNC Mold</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Rapid Prototyping Facility #2</span>
+<div class="absolute top-2.5 left-2.5 flex items-center gap-1.5">
+<span class="px-2 py-0.5 rounded font-label-sm text-label-sm uppercase bg-surface-container-lowest text-primary border border-outline-variant">OEM Bespoke</span>
+</div>
+<div class="absolute top-2.5 right-2.5">
+<span class="px-2 py-0.5 rounded font-label-sm text-label-sm uppercase bg-tertiary-fixed text-on-tertiary-fixed font-semibold border border-tertiary-fixed-dim">In Production</span>
+</div>
+</div>
+</div>
+<div class="p-space-md flex-1 flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between gap-2">
+<span class="font-mono text-label-md font-bold text-outline bg-surface-container-low border border-outline-variant px-2 py-0.5 rounded"># OEM-CST-99</span>
+<span class="font-label-sm text-label-sm text-outline">Custom Batch</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary font-semibold mt-2 group-hover:text-secondary transition-colors">
+                Bespoke Tooling &amp; Molded Prototype
+              </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1 line-clamp-2">
+                Custom wall thickness, engineered debossed brand logo dies, and tailored nesting radii for enterprise clients.
+              </p>
+<!-- Technical Chips -->
+<div class="flex flex-wrap gap-1.5 mt-3">
+<span class="px-2 py-0.5 rounded bg-surface-container border border-outline-variant font-label-sm text-label-sm text-on-surface">CNC Milled Alloy</span>
+<span class="px-2 py-0.5 rounded bg-surface-container border border-outline-variant font-label-sm text-label-sm text-on-surface">14-Day Tooling</span>
+<span class="px-2 py-0.5 rounded bg-surface-container border border-outline-variant font-label-sm text-label-sm text-on-surface">Custom Logo Die</span>
+</div>
+</div>
+<!-- Monospace Logistics & Actions -->
+<div class="mt-space-md pt-space-sm border-t border-outline-variant flex flex-col gap-space-sm">
+<div class="flex items-center justify-between font-mono text-label-sm text-on-surface-variant">
+<span>Runs: <strong class="text-primary font-semibold">Custom Lots</strong></span>
+<span>MOQ: <strong class="text-primary font-semibold">50,000 pcs min</strong></span>
+</div>
+<div class="flex items-center gap-2 pt-1">
+<button class="flex-1 py-1.5 px-2 bg-primary text-on-primary hover:bg-primary-container font-label-md text-label-md rounded transition-colors flex items-center justify-center gap-1">
+<span class="material-symbols-outlined text-[16px]">tune</span>
+<span>Configure Tooling</span>
+</button>
+<button class="p-1.5 bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-primary rounded border border-outline-variant transition-colors" title="CAD File">
+<span class="material-symbols-outlined text-[18px]">attachment</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Bulk Action Bar & Pagination Bottom Section -->
+<div class="mt-space-sm p-space-md bg-surface-container-lowest border border-outline-variant rounded-xl flex flex-col md:flex-row items-center justify-between gap-space-md">
+<!-- Batch Export Selection Bar -->
+<div class="flex items-center gap-space-md w-full md:w-auto">
+<label class="inline-flex items-center gap-2 cursor-pointer select-none">
+<input class="w-4 h-4 rounded border-outline-variant text-primary focus:ring-secondary" type="checkbox"/>
+<span class="font-body-sm text-body-sm text-on-surface font-medium">Select All 9 Displayed</span>
+</label>
+<div class="h-4 w-px bg-outline-variant hidden sm:block"></div>
+<button class="px-3 py-1.5 rounded-lg border border-outline-variant bg-surface-container-low hover:bg-surface-container font-label-md text-label-md text-primary flex items-center gap-1.5 transition-colors">
+<span class="material-symbols-outlined text-[16px]">file_download</span>
+<span>Batch Export CSV / CAD</span>
+</button>
+</div>
+<!-- Pagination Controls -->
+<div class="flex items-center gap-1.5 w-full md:w-auto justify-center">
+<button class="p-1.5 rounded border border-outline-variant text-outline hover:text-primary hover:bg-surface-container-low disabled:opacity-40 transition-colors" disabled="">
+<span class="material-symbols-outlined text-[18px]">chevron_left</span>
+</button>
+<button class="w-8 h-8 rounded bg-primary text-on-primary font-label-md text-label-md font-bold">1</button>
+<button class="w-8 h-8 rounded border border-outline-variant text-on-surface hover:bg-surface-container font-label-md text-label-md transition-colors">2</button>
+<button class="w-8 h-8 rounded border border-outline-variant text-on-surface hover:bg-surface-container font-label-md text-label-md transition-colors">3</button>
+<button class="w-8 h-8 rounded border border-outline-variant text-on-surface hover:bg-surface-container font-label-md text-label-md transition-colors">4</button>
+<button class="p-1.5 rounded border border-outline-variant text-on-surface hover:text-primary hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</button>
+</div>
+</div>
+</main>
+</div>
+<!-- Footer (Shared Component) -->
+<footer class="w-full mt-auto bg-surface-container-low dark:bg-inverse-surface border-t border-outline-variant dark:border-outline">
+<div class="w-full max-w-[1440px] mx-auto px-margin-sm md:px-margin lg:px-margin-lg py-space-lg flex flex-col md:flex-row items-center justify-between gap-space-md">
+<p class="font-body-sm text-body-sm text-on-surface-variant dark:text-inverse-on-surface text-center md:text-left">
+        © 2025 Pulp &amp; Grain Industrial Cellulose Corp. ISO 14021 Circularity Verified.
+      </p>
+<div class="flex flex-wrap items-center justify-center gap-space-md">
+<a class="font-label-sm text-label-sm text-on-surface-variant dark:text-inverse-on-surface hover:text-primary dark:hover:text-primary-fixed transition-colors" href="#">Material Data Sheets</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant dark:text-inverse-on-surface hover:text-primary dark:hover:text-primary-fixed transition-colors" href="#">Tensile Testing Standards</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant dark:text-inverse-on-surface hover:text-primary dark:hover:text-primary-fixed transition-colors" href="#">Procurement Terms</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant dark:text-inverse-on-surface hover:text-primary dark:hover:text-primary-fixed transition-colors" href="#">ASTM D6400 Compliance</a>
+</div>
+</div>
+</footer>
+</body></html>

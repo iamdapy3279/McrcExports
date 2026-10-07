@@ -76,14 +76,14 @@ export default function ProductViewerModal() {
   const composeInquiryUrl = () => {
     const subject = encodeURIComponent(`B2B Inquiry: Model ${product.modelNumber} (${product.categoryName || 'Leather Product'})`);
     const body = encodeURIComponent(
-      `Hello MCRC Exports,\n\nI am interested in sourcing and requesting specifications/samples for:\nProduct: ${product.name}\nModel Number: ${product.modelNumber}\nCategory: ${product.categoryName}\n\nPlease share catalog pricing, minimum order quantities (MOQ), and production lead times.\n\nThank you.`
+      `Hello Notch,\n\nI am interested in sourcing and requesting specifications/samples for:\nProduct: ${product.name}\nModel Number: ${product.modelNumber}\nCategory: ${product.categoryName}\n\nPlease share catalog pricing, minimum order quantities (MOQ), and production lead times.\n\nThank you.`
     );
     return `mailto:mcrcpltd@gmail.com?subject=${subject}&body=${body}`;
   };
 
   return (
     <div
-      className="product-modal-backdrop"
+      className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm transition-opacity"
       onClick={(e) => {
         if (e.target === e.currentTarget) closeProductModal();
       }}
@@ -91,11 +91,11 @@ export default function ProductViewerModal() {
       aria-modal="true"
       aria-labelledby="modal-product-title"
     >
-      <div className="product-modal-container">
+      <div className="bg-surface-container-lowest w-full max-w-5xl rounded-2xl shadow-2xl overflow-hidden relative flex flex-col md:flex-row max-h-[90vh]">
         {/* Close Button */}
         <button
           type="button"
-          className="modal-close-btn"
+          className="absolute top-4 right-4 z-10 w-10 h-10 bg-surface-container-lowest/80 text-on-surface-variant hover:text-primary hover:bg-surface-container transition-colors rounded-full flex items-center justify-center shadow-sm"
           onClick={closeProductModal}
           aria-label="Close Product Viewer"
         >
@@ -104,23 +104,23 @@ export default function ProductViewerModal() {
 
         {/* Gallery Side */}
         <div
-          className="modal-gallery-side"
+          className="w-full md:w-1/2 bg-surface-container-low flex flex-col relative"
           onTouchStart={onTouchStart}
           onTouchMove={onTouchMove}
           onTouchEnd={onTouchEnd}
         >
-          <div className="modal-main-image-wrap">
+          <div className="relative flex-1 flex items-center justify-center overflow-hidden min-h-[300px]">
             <img
               src={images[currentIdx]}
               alt={`${product.name} - View ${currentIdx + 1}`}
-              className="modal-main-image"
+              className="w-full h-full object-contain"
             />
 
             {images.length > 1 && (
               <>
                 <button
                   type="button"
-                  className="gallery-nav-btn gallery-nav-prev"
+                  className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-surface-container-lowest/90 text-primary hover:bg-surface-container transition-colors rounded-full flex items-center justify-center shadow-md"
                   onClick={handlePrev}
                   aria-label="Previous Image"
                 >
@@ -128,7 +128,7 @@ export default function ProductViewerModal() {
                 </button>
                 <button
                   type="button"
-                  className="gallery-nav-btn gallery-nav-next"
+                  className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-surface-container-lowest/90 text-primary hover:bg-surface-container transition-colors rounded-full flex items-center justify-center shadow-md"
                   onClick={handleNext}
                   aria-label="Next Image"
                 >
@@ -140,7 +140,7 @@ export default function ProductViewerModal() {
 
           {/* Thumbnail Strip */}
           {images.length > 1 && (
-            <div className="modal-thumbnail-strip">
+            <div className="flex items-center gap-2 p-4 bg-surface-container overflow-x-auto">
               {images.map((img, index) => (
                 <div
                   key={index}
@@ -158,49 +158,49 @@ export default function ProductViewerModal() {
         </div>
 
         {/* Info Side */}
-        <div className="modal-info-side">
-          <div className="modal-category-tag">
+        <div className="w-full md:w-1/2 p-6 md:p-8 overflow-y-auto flex flex-col">
+          <div className="text-label-sm font-label-sm font-bold uppercase tracking-widest text-secondary mb-2">
             {product.categoryName || 'Handcrafted Collection'}
           </div>
 
-          <h2 className="modal-product-title" id="modal-product-title">
+          <h2 className="text-headline-md font-headline-md font-bold text-primary mb-2" id="modal-product-title">
             {product.name}
           </h2>
 
-          <div className="modal-model-badge">
+          <div className="inline-flex items-center px-2.5 py-0.5 rounded text-xs font-mono font-medium bg-surface-container-highest text-on-surface-variant mb-6 w-fit">
             Model: {product.modelNumber}
           </div>
 
-          <div className="modal-desc-box">
-            <p className="modal-desc-text">
+          <div className="mb-6">
+            <p className="text-body-md text-on-surface-variant leading-relaxed">
               {product.description ||
-                `Masterfully handcrafted in Kolkata using traditional Shantiniketan embossing and hand-painting techniques. Model ${product.modelNumber} is built for international commercial durability and distinctive artisanal luxury.`}
+                `Precision engineered for international commercial durability and distinctive quality. Model ${product.modelNumber} is built for international commercial durability and distinctive artisanal luxury.`}
             </p>
           </div>
 
-          <div className="modal-spec-list">
-            <div className="spec-item">
-              <span className="spec-label">Artisan Technique:</span>
-              <span className="spec-value">Shantiniketan Hand-Embossed & Painted</span>
+          <div className="flex flex-col gap-3 mb-8 border-t border-outline-variant/30 pt-6">
+            <div className="flex justify-between items-center text-sm">
+              <span className="text-outline font-medium">Artisan Technique:</span>
+              <span className="text-on-surface font-semibold text-right max-w-[60%]">Commercial Export Quality</span>
             </div>
-            <div className="spec-item">
-              <span className="spec-label">Material:</span>
-              <span className="spec-value">100% Genuine Handcrafted Leather</span>
+            <div className="flex justify-between items-center text-sm">
+              <span className="text-outline font-medium">Material:</span>
+              <span className="text-on-surface font-semibold text-right max-w-[60%]">Premium Sustainable Materials</span>
             </div>
-            <div className="spec-item">
-              <span className="spec-label">Manufacturing Origin:</span>
-              <span className="spec-value">Kolkata, West Bengal, India</span>
+            <div className="flex justify-between items-center text-sm">
+              <span className="text-outline font-medium">Manufacturing Origin:</span>
+              <span className="text-on-surface font-semibold text-right max-w-[60%]">Export Hub: Mundra & JNPT (India)</span>
             </div>
-            <div className="spec-item">
-              <span className="spec-label">B2B Customization:</span>
-              <span className="spec-value">Custom Colors, Logos & Dimensions</span>
+            <div className="flex justify-between items-center text-sm">
+              <span className="text-outline font-medium">B2B Customization:</span>
+              <span className="text-on-surface font-semibold text-right max-w-[60%]">Custom Colors, Logos & Dimensions</span>
             </div>
           </div>
 
-          <div className="modal-actions">
+          <div className="mt-auto flex flex-col gap-3">
             <a
               href={composeInquiryUrl()}
-              className="btn btn-primary"
+              className="flex items-center justify-center gap-2 bg-primary text-on-primary hover:bg-primary-container px-6 py-3 rounded-xl font-label-lg transition-colors"
               style={{ width: '100%', textDecoration: 'none' }}
             >
               <Mail size={16} />
@@ -209,7 +209,7 @@ export default function ProductViewerModal() {
 
             <a
               href="tel:+919830920676"
-              className="btn btn-secondary"
+              className="flex items-center justify-center gap-2 bg-secondary-container text-on-secondary-container hover:bg-secondary-fixed transition-colors px-6 py-3 rounded-xl font-label-lg"
               style={{ width: '100%', textDecoration: 'none' }}
             >
               <Phone size={16} />
